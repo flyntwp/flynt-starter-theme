@@ -9,11 +9,20 @@ function importSlickFonts (fontName) { // eslint-disable-line no-unused-vars
 }
 
 import slickConfiguration from './sliderConfiguration.js'
+import debug from '../debug.js'
 
 class MediaSlider extends window.HTMLDivElement {
   constructor (self) {
     self = super(self)
     self.$ = $(self)
+
+    // var a = debug('worker:a')
+    // setInterval(function () {
+    //   a('doing some work')
+    // }, 10000)
+
+    console.log(self.$)
+    // console.log(self.$.attr('is'))
     self.sliderInitialised = false
     self.isMobile = false
     self.resolveElements()
