@@ -11,7 +11,7 @@ $maxWidth = lookup('$global-layout-maxWidth') || 1140px
   .imageHero
     center($maxWidth, $gutterWidth)
 
-    &-imageContainer
+    &-imageWrapper
       width: 100%
 
     &-imageElement
@@ -27,7 +27,7 @@ $maxWidth = lookup('$global-layout-maxWidth') || 1140px
       max-width: 100%
 
   .imageHero-hasFixedHeight .imageHero
-    &-imageContainer
+    &-imageWrapper
       height: 500px
 
       +below(2)
