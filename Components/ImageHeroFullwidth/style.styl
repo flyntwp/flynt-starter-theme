@@ -2,14 +2,14 @@ $gutterWidth = lookup('$global-layout-gutterWidth') || 15px
 $maxWidth = lookup('$global-layout-maxWidth') || 1140px
 rupture.scale = $global-layout-scale is defined ? $global-layout-scale : 0 400px 800px 1200px
 
-[is='flynt-image-hero']
+[is='flynt-image-hero-fullwidth']
   *,
   *:before,
   *:after
     box-sizing: border-box
 
   .imageHero
-    center($maxWidth, $gutterWidth)
+    center(1920px)
 
     &-imageContainer
       display: block

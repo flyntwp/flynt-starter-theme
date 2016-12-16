@@ -9,6 +9,9 @@
       "button_label": "Add Component",
       "layouts": [
         "Flynt/Components/ImageHero/Layout",
+        "Flynt/Components/ImageHeroFullwidth/Layout",
+        "Flynt/Components/ImageHeroFixedHeight/Layout",
+        "Flynt/Components/ImageHeroFullwidthFixedHeight/Layout",
         "Flynt/Components/MediaSlider/Layout",
         "Flynt/Components/MediaTextBlock/Layout",
         "Flynt/Components/Oembed/Layout",
