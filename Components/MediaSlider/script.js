@@ -16,12 +16,12 @@ class MediaSlider extends window.HTMLDivElement {
     self = super(self)
     self.$ = $(self)
 
-    // var a = debug('worker:a')
-    // setInterval(function () {
-    //   a('doing some work')
-    // }, 10000)
+    var a = debug('worker:a')
+    setInterval(function () {
+      a('doing some work')
+    }, 2000)
 
-    console.log(self.$)
+    // console.log(self.$)
     // console.log(self.$.attr('is'))
     self.sliderInitialised = false
     self.isMobile = false
