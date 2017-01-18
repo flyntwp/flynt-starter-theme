@@ -12,13 +12,41 @@ import slickConfiguration from './sliderConfiguration.js'
 import debug from '../debug.js'
 
 class MediaSlider extends window.HTMLDivElement {
+
+  static get observedAttributes () {
+    return [
+      'data-at1',
+      'data-at2',
+      'disabled'
+    ]
+  }
+
   constructor (self) {
+    // this.myCustomElement = true
     self = super(self)
     self.$ = $(self)
 
+    let counter = 0
+
+
+    self.myCustomElement = true
+    console.log(self.myCustomElement)
+
     var a = debug('worker:a')
     setInterval(function () {
-      a('doing some work')
+      counter++
+      a('doing some work ' + counter)
+      self.$.attr('data-at1', counter)
+      counter++
+      self.$.attr('data-at2', counter)
+
+      if (self.disabled) {
+        self.disabled = false
+        // self.myCustomElement = false
+      } else {
+        self.disabled = true
+        // self.myCustomElement = true
+      }
     }, 2000)
 
     // console.log(self.$)
@@ -27,6 +55,32 @@ class MediaSlider extends window.HTMLDivElement {
     self.isMobile = false
     self.resolveElements()
     return self
+  }
+
+  get myCustomElement () {
+    console.log('get myCustomElement')
+  }
+
+  set myCustomElement (val) {
+    console.log('set myCustomElement val: ' + val)
+  }
+
+  set disabled (val) {
+    // console.log('disabled: ' + val)
+    // Reflect the value of `disabled` as an attribute.
+    if (val) {
+      this.setAttribute('disabled', '')
+    } else {
+      this.removeAttribute('disabled')
+    }
+  }
+
+  get disabled () {
+    return this.hasAttribute('disabled')
+  }
+
+  attributeChangedCallback (attr, oldValue, newValue) {
+    // console.log(attr)
   }
 
   resolveElements () {
