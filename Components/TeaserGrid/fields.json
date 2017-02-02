@@ -1,14 +1,4 @@
 {
-  "options": [
-    {
-      "default_value": 4,
-      "label": "Teaser Count",
-      "name": "teaserCount",
-      "type": "number",
-      "min": 1,
-      "required": 1
-    }
-  ],
   "layout": {
     "name": "teaserGrid",
     "label": "Teaser Grid",
@@ -18,8 +8,8 @@
         "name": "teaserItems",
         "type": "repeater",
         "collapsed": "",
-        "min": 0,
-        "max": 0,
+        "min": 1,
+        "max": 4,
         "layout": "row",
         "button_label": "Add Teaser",
         "sub_fields": [
@@ -46,8 +36,9 @@
             ],
             "allow_null": 0,
             "multiple": 0,
-            "return_format": "object",
+            "return_format": "id",
             "ui": 1,
+            "required": 1,
             "conditional_logic": [
               [
                 {
@@ -62,6 +53,7 @@
             "label": "Title",
             "name": "titleText",
             "type": "text",
+            "required": 1,
             "conditional_logic": [
               [
                 {
@@ -76,6 +68,7 @@
             "label": "Page Url",
             "name": "pageUrl",
             "type": "url",
+            "required": 1,
             "conditional_logic": [
               [
                 {
@@ -91,12 +84,13 @@
             "name": "linkTarget",
             "type": "select",
             "choices": {
-              "": "Same window",
+              "_self": "Same window",
               "_blank": "New window"
             },
-            "default_value": "",
+            "default_value": "_self",
             "allow_null": 0,
             "multiple": 0,
+            "required": 1,
             "ui": 1
           },
           {
