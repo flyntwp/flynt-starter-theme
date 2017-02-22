@@ -1,13 +1,11 @@
-<div is="wps-media-slider">
+<div is="flynt-media-slider">
   <div class="mediaSlider">
     <ul class="mediaSlider-slides">
       {% for mediaSlide in mediaSlides %}
         <li class="mediaSlider-slide">
           {% if mediaSliderTitle and mediaSliderTitlePosition == 'above' %}
-            <div class="mediaSlider-slideTitleWrapper">
-              <div class="mediaSlider-slideTitle">
-                {{ mediaSlide.titleText }}
-              </div>
+            <div class="mediaSlider-slideTitle">
+              {{ mediaSlide.titleText }}
             </div>
           {% endif %}
           {% if mediaSlide.mediaType == 'image' %}
@@ -39,10 +37,8 @@
             </div>
           {% endif %}
           {% if mediaSliderTitle and mediaSliderTitlePosition == 'below' %}
-            <div class="mediaSlider-slideTitleWrapper">
-              <div class="mediaSlider-slideTitle">
-                {{ mediaSlide.titleText }}
-              </div>
+            <div class="mediaSlider-slideTitle">
+              {{ mediaSlide.titleText }}
             </div>
           {% endif %}
         </li>

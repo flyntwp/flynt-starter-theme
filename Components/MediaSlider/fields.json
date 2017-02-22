@@ -56,17 +56,9 @@
             "label": "Image",
             "name": "image",
             "type": "image",
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": 1440,
-            "min_height": 720,
-            "max_width": 0,
-            "max_height": 0,
-            "min_size": 0,
-            "max_size": 0,
-            "instructions": "Recommended Size: Min-Width 1440px; Min-Height: 720px; Image-Format: JPG",
-            "mime_types": "jpg,jpeg"
+            "mime_types": "jpg,jpeg",
+            "instructions": "Recommended Size: Min-Width 1200px; Min-Height: 675px; Image-Format: JPG, Aspect Ratio 16/9.",
+            "required": 1
           },
           {
             "label": "Oembed",

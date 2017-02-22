@@ -50,4 +50,4 @@ class MediaSlider extends window.HTMLDivElement {
   }
 }
 
-window.customElements.define('wps-media-slider', MediaSlider, {extends: 'div'})
+window.customElements.define('flynt-media-slider', MediaSlider, {extends: 'div'})
