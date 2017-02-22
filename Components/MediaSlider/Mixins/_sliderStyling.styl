@@ -1,17 +1,3 @@
-$slideTitleOverlay = false // Should the title overlay the media?
-$slideTitleOffset = 15px // Offset of the title to the edges of the slider
-$slideTitleVerticalPosition = 'top' // Defines if the title should be on top/bottom of slider 'top' | 'bottom'
-
-$slideDotsOverlay = true // Should the navigation dots overlay the media?
-$slideDotsOffset = 15px // Offset of the dots to the edges of the slider
-$slideDotsVerticalPosition = 'top' // Defines if the dots should be on top/bottom of slider 'top' | 'bottom'
-$slideDotsSpacing = 2px // Spacing between dot
-$slideDotsSize = 12px // Size of a dot
-$slideDotColor = #fff // Color of the dot
-
-$arrowSize = 2em // Size of the arrows
-$arrowColor = #fff // Color of the arrows
-
 @font-face
   font-family: 'slick'
   font-weight: normal
@@ -19,17 +5,25 @@ $arrowColor = #fff // Color of the arrows
   src: url('../../vendor/slick/slick.eot')
   src: url('../../vendor/slick/slick.eot?#iefix') format('embedded-opentype'), url('../../vendor/slick/slick.woff') format('woff'), url('../../vendor/slick/slick.ttf') format('truetype'), url('../../vendor/slick/slick.svg#slick') format('svg')
 
+$colorGray = lookup('$global-color-gray') || #333
+$colorWhite = lookup('$global-color-white') || #fff
+$slideDotsOffset = 15px
+$slideDotsSpacing = 2px
+$slideDotsSize = 12px
+$arrowSize = 30px
+
 &-prevButton,
 &-nextButton
   background: transparent
   border: 0
-  color: $arrowColor
+  color: $colorWhite
   cursor: pointer
   font-family: 'slick'
   font-size: $arrowSize
   margin: auto
   opacity: 1
   outline: 0
+  padding: 0
   position: absolute
   top: 50%
   transform: translateY(-100%)
@@ -53,15 +47,9 @@ $arrowColor = #fff // Color of the arrows
   padding: 0
   text-align: center
   width: 100%
-
-  if $slideDotsOverlay
-    position: absolute
-    left: 0
-
-    if $slideDotsVerticalPosition is 'top'
-      top: $slideDotsOffset
-    else
-      bottom: $slideDotsOffset
+  position: absolute
+  left: 0
+  bottom: $slideDotsOffset
 
 .slick-dots > li
   display: inline-block
@@ -70,7 +58,7 @@ $arrowColor = #fff // Color of the arrows
 .slick-dots > li button
   background: transparent
   border-radius: 50%
-  border: 2px solid $slideDotColor
+  border: 2px solid $colorWhite
   color: transparent
   cursor: pointer
   display: block
@@ -80,4 +68,4 @@ $arrowColor = #fff // Color of the arrows
   width: $slideDotsSize
 
 .slick-dots > li.slick-active button
-  background: $slideDotColor
+  background: $colorWhite

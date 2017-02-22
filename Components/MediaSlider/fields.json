@@ -6,13 +6,6 @@
       "type": "image",
       "return_format": "array",
       "preview_size": "thumbnail",
-      "library": "all",
-      "min_width": 0,
-      "max_width": 0,
-      "min_height": 0,
-      "max_height": 0,
-      "min_size": 0,
-      "max_size": 0,
       "mime_types": "jpg,jpeg"
     }
   ],
@@ -32,9 +25,6 @@
         "label": "Media Slides",
         "name": "mediaSlides",
         "type": "repeater",
-        "collapsed": "",
-        "min": 0,
-        "max": 0,
         "layout": "row",
         "button_label": "Add Slide",
         "sub_fields": [
@@ -46,16 +36,13 @@
               "image": "Image",
               "oembed": "Video"
             },
-            "default_value": "image",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 0
+            "default_value": ""
           },
           {
             "label": "Image",
             "name": "image",
             "type": "image",
+            "preview_size": "medium",
             "mime_types": "jpg,jpeg",
             "instructions": "Recommended Size: Min-Width 1200px; Min-Height: 675px; Image-Format: JPG, Aspect Ratio 16/9.",
             "required": 1

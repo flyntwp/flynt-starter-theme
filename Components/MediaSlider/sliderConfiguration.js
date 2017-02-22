@@ -13,14 +13,14 @@ module.exports = {
   // centerPadding: '50px',
   // cssEase: 'ease',
   // customPaging: null,
-  dots: true,
+  dots: true
   // dotsClass: 'slick-dots',
   // draggable: true,
   // fade: false,
   // focusOnSelect: false,
   // easing: 'linear',
   // edgeFriction: 0.15,
-  infinite: false
+  // infinite: false,
   // initialSlide: 0,
   // lazyLoad: 'ondemand',
   // mobileFirst: false,

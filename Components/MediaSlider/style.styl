@@ -4,7 +4,7 @@ $gutterWidth = lookup('$global-layout-gutterWidth') || 15px
 $containerMaxWidth = lookup('$global-layout-containerMaxWidth') || 1140px
 $colorBackground = lookup('$global-color-background') || #fff
 
-@import 'Mixins/_playButton.styl'
+@import 'Mixins/_playButton'
 
 [is='flynt-media-slider']
   *,
@@ -13,10 +13,10 @@ $colorBackground = lookup('$global-color-background') || #fff
     box-sizing: border-box
 
   .mediaSlider
-    center($maxWidth, $gutterWidth)
+    center($containerMaxWidth, $gutterWidth)
     position: relative
 
-    @import 'Mixins/_sliderStyling.styl'
+    @import 'Mixins/_sliderStyling'
 
     &-slides
       list-style: none
@@ -34,24 +34,23 @@ $colorBackground = lookup('$global-color-background') || #fff
       text-align: center
       width: 100%
 
-    &-imageContainer
-      display: block
-      width: 100%
-
     &-imageElement
       display: block
+
+    &-oembedVideoContainer
+      position: relative
 
     &-oembedVideo
       height: 0
       padding-bottom: percentage(9 / 16)
 
-    &-oembedVideo iframe
-      display: block
-      height: 100%
-      left: 0
-      position: absolute
-      top: 0
-      width: 100%
+      iframe
+        display: block
+        height: 100%
+        left: 0
+        position: absolute
+        top: 0
+        width: 100%
 
     &-oembedPosterImage
       cursor: pointer
@@ -67,16 +66,3 @@ $colorBackground = lookup('$global-color-background') || #fff
 
       &-isHidden
         visibility: hidden
-
-    &-oembedPosterImage-isHidden
-      display: none
-
-    &-oembedPosterImage .mediaSlider-imageContainer
-      height: 100%
-      position: relative
-
-    &-oembedPosterImage .mediaSlider-imageElement
-      height: auto
-
-    &-oembedVideoContainer
-      position: relative
