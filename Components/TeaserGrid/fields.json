@@ -101,6 +101,7 @@
             "preview_size": "thumbnail",
             "library": "all",
             "mime_types": "jpg,jpeg",
+            "required": 1,
             "conditional_logic": [
               [
                 {
