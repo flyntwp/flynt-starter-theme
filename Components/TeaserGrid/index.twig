@@ -12,7 +12,8 @@
               {{ teaser.post.thumbnail.src | resize(1200, 600) }} 1200w,
               {{ teaser.post.thumbnail.src | resize(1600, 800) }} 1600w"
               src="{{teaser.post.thumbnail.src}}"
-              sizes="100vw"/>
+              sizes="100vw"
+              alt="{{ teaser.post.title }}"/>
             {% endif %}
           </a>
         </li>
@@ -27,7 +28,8 @@
               {{ teaser.image.src | resize(1200, 600) }} 1200w,
               {{ teaser.image.src | resize(1600, 800) }} 1600w"
               src="{{ teaser.image.src }}"
-              sizes="100vw"/>
+              sizes="100vw"
+              alt="{{ teaser.titleText }}"/>
             {% endif %}
           </a>
         </li>
