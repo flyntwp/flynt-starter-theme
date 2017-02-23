@@ -1,0 +1,9 @@
+{
+  "options": [
+    {
+      "name": "brandLogo",
+      "label": "Brand Logo",
+      "type": "image"
+    }
+  ]
+}

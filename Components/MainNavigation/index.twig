@@ -1,4 +1,9 @@
 <nav is="wps-main-navigation">
+  {% if brandLogo %}
+    <a href="{{ homeUrl }}">
+      <img class="mainNavigation-brandLogo" src="{{ brandLogo.src }}" alt="{{ brandLogo.alt }}">
+    </a>
+  {% endif %}
   <ul class="mainNavigation">
     {% for item in menu.get_items %}
       <li class="mainNavigation-item {{item.classes | join(' ')}}">
