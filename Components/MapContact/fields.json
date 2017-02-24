@@ -1,0 +1,36 @@
+{
+  "layout": {
+    "name": "mapContact",
+    "label": "Map Contact",
+    "sub_fields": [
+      {
+        "name": "googleMap",
+        "label": "Google Map",
+        "type": "google_map"
+      },
+      {
+        "name": "pinImage",
+        "label": "Pin Image",
+        "type": "image",
+        "return_format": "array",
+        "preview_size": "thumbnail",
+        "mime_types": "jpg,png",
+        "required" : 1
+      },
+      {
+        "label": "Link",
+        "name": "link",
+        "type": "text",
+        "required" : 1
+      },
+      {
+        "name": "contactBox",
+        "label": "Contact Box",
+        "name": "contactBox",
+        "type": "wysiwyg",
+        "required": 1,
+        "media_upload": 0
+      }
+    ]
+  }
+}

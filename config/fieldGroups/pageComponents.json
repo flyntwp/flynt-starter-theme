@@ -9,6 +9,7 @@
       "button_label": "Add Component",
       "layouts": [
         "Flynt/Components/ImageHero/Fields/Layout",
+        "Flynt/Components/MapContact/Fields/Layout",
         "Flynt/Components/MediaSlider/Fields/Layout",
         "Flynt/Components/MediaTextBlock/Fields/Layout",
         "Flynt/Components/Oembed/Fields/Layout",
