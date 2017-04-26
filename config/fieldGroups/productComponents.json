@@ -1,0 +1,52 @@
+{
+  "name": "productComponents",
+  "title": "Product Components",
+  "fields": [
+    {
+      "name": "someNumber",
+      "label": "Some Number",
+      "type": "number"
+    },
+    {
+      "name": "options",
+      "label": "Options",
+      "type": "repeater",
+      "min": 0,
+      "max": 5,
+      "sub_fields": [
+        {
+          "name": "optionDescription",
+          "label": "Description",
+          "type": "text"
+        },
+        "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
+      ]
+    },
+    "Flynt/Components/BlockImage/Fields/Layout/SubFields#foo",
+    "Flynt/Components/BlockMediaText/Fields/Layout/SubFields#bar",
+    "Flynt/Components/BlockWysiwyg/Fields/Layout/SubFields#first",
+    "Flynt/Components/BlockWysiwyg/Fields/Layout/SubFields#second",
+    {
+      "name": "productComponents",
+      "label": "Product Components",
+      "type": "flexible_content",
+      "button_label": "Add Component",
+      "layouts": [
+        "Flynt/Components/BlockImage/Fields/Layout",
+        "Flynt/Components/BlockMediaText/Fields/Layout",
+        "Flynt/Components/BlockVideoOembed/Fields/Layout",
+        "Flynt/Components/BlockWysiwyg/Fields/Layout",
+        "Flynt/Components/SliderMedia/Fields/Layout"
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "product"
+      }
+    ]
+  ]
+}

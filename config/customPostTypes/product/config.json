@@ -1,0 +1,18 @@
+{
+  "label": "Product",
+  "singular_label": "Product",
+  "description": "Products",
+  "public": true,
+  "show_ui": true,
+  "show_in_nav_menus": false,
+  "show_in_rest": false,
+  "labels": {
+    "menu_name": "Products",
+    "all_items": "All Products",
+    "add_new": "Add new Product"
+  },
+  "supports": [
+    "title",
+    "thumbnail"
+  ]
+}

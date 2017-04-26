@@ -1,0 +1,23 @@
+{
+  "globalOptions": [
+    {
+      "label": "Default Products Number",
+      "name": "defaultProductsNumber",
+      "instructions": "How many products to show inside the Overview Page",
+      "type": "number"
+    }
+  ],
+  "translatableOptions": [
+    {
+      "label": "Overview Page",
+      "name": "overviewPage",
+      "type": "page_link",
+      "post_type": [
+        "page"
+      ],
+      "allow_null": 0,
+      "multiple": 0,
+      "required": 1
+    }
+  ]
+}
