@@ -1,0 +1,13 @@
+{
+  "layout": {
+    "name": "ListProducts",
+    "label": "List Products",
+    "sub_fields": [
+      {
+        "name": "titleText",
+        "label": "Title",
+        "type": "text"
+      }
+    ]
+  }
+}

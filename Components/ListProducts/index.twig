@@ -1,0 +1,14 @@
+<div is="flynt-list-products" class="flyntComponent">
+  <div class="listProducts">
+    <h2><a href="{{ overviewPage }}">{{ titleText }}</a></h2>
+    {% if products %}
+    <ul>
+      {% for product in products %}
+        <li>
+          <a href="{{ product.link }}">{{ product.post_title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</div>
