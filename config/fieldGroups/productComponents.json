@@ -17,7 +17,8 @@
         {
           "name": "optionDescription",
           "label": "Description",
-          "type": "text"
+          "type": "text",
+          "required": 1
         },
         "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
       ]
