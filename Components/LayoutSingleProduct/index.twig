@@ -1,0 +1,30 @@
+<div is="flynt-layout-single-product" class="flyntComponent">
+  <section class="pageWrapper">
+    <header class="mainHeader">
+      {{ area('mainHeader') }}
+    </header>
+    <main class="mainContent" role="main">
+      <div>Number: {{ post.someNumber }}</div>
+      <div>
+        Options:
+        <ul>
+        {% for option in post.fields.options %}
+          <li>
+            <img class="LayoutSingleProduct-imageElement" srcset="
+              {{ option.image.src | resize(576, 324) }} 576w,
+              {{ option.image.src | resize(768, 432) }} 768w"
+              src="{{ option.image.src }}"
+              sizes="(min-width: 200px) 200px, 100vw"
+              alt="{{ option.image.alt }}">
+            <p>{{ option.optionDescription }}</p>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+      {{ area('pageComponents') }}
+    </main>
+    <footer class="mainFooter">
+      {{ area('mainFooter') }}
+    </footer>
+  </section>
+</div>
