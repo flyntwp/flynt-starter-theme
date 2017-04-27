@@ -9,6 +9,11 @@
   ],
   "translatableOptions": [
     {
+      "label": "Product Types Label",
+      "name": "productTypesLabel",
+      "type": "text"
+    },
+    {
       "label": "Overview Page",
       "name": "overviewPage",
       "type": "page_link",

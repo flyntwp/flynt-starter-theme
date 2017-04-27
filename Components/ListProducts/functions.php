@@ -9,8 +9,9 @@ use Timber\Post;
 use Flynt\Utils\Log;
 
 add_filter('Flynt/addComponentData?name=ListProducts', function ($data) {
-    $defaultCount = OptionPages::getOptions('globalOptions', 'customPostType', 'product');
-    $data['overviewPage'] = OptionPages::getOption('translatableOptions', 'customPostType', 'Product', 'overviewPage');
+    $defaultCount = OptionPages::getOption('globalOptions', 'customPostType', 'product', 'defaultProductsNumber');
+    $data['productTypesLabel'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'productTypesLabel');
+    $data['overviewPage'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'overviewPage');
     $args = [
         'post_type' => 'product',
         'posts_per_page' => ($defaultCount) ? $defaultCount : 10,
