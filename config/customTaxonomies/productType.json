@@ -1,0 +1,21 @@
+{
+  "label": "Product Type",
+  "show_ui": true,
+  "show_admin_column": true,
+  "hierarchical": true,
+  "objectType": "product",
+  "labels": {
+    "name": "Product Types",
+    "singular_name": "Product Type",
+    "search_items": "Search Product Types",
+    "all_items": "All Product Types",
+    "edit_item": "Edit Product Type",
+    "update_item": "Update Product Type",
+    "add_new_item": "Add New Product Type",
+    "new_item_name": "New Product Type Name",
+    "menu_name": "Product Types"
+  },
+  "rewrite": {
+    "with_front": false
+  }
+}

@@ -14,5 +14,8 @@
   "supports": [
     "title",
     "thumbnail"
+  ],
+  "taxonomies": [
+    "product-type"
   ]
 }
