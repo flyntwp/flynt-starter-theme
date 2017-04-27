@@ -3,6 +3,7 @@
 namespace Flynt\Components\LayoutSingleProduct;
 
 use Timber\Timber;
+use Flynt\Features\Acf\OptionPages;
 use Flynt\Features\Components\Component;
 
 add_action('wp_enqueue_scripts', function () {
@@ -19,5 +20,6 @@ add_filter('Flynt/addComponentData?name=LayoutSingleProduct', function ($data) {
     $context = [
         'post' => $post
     ];
+    $data['productTypesLabel'] = OptionPages::getOption('translatableOptions', 'customPostType', 'Product', 'productTypesLabel');
     return array_merge($context, $data);
 });

@@ -4,6 +4,9 @@
       {{ area('mainHeader') }}
     </header>
     <main class="mainContent" role="main">
+      {% if post.terms('product-type') %}
+        {{ productTypesLabel }}: {{ post.terms('product-type') | join(', ') }}
+      {% endif %}
       {% if post.someNumber %}
         <div>Number: {{ post.someNumber }}</div>
       {% endif %}
