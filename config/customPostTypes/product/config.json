@@ -6,6 +6,7 @@
   "show_ui": true,
   "show_in_nav_menus": false,
   "show_in_rest": false,
+  "has_archive": true,
   "labels": {
     "menu_name": "Products",
     "all_items": "All Products",

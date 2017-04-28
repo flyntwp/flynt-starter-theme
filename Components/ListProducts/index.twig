@@ -1,6 +1,10 @@
 <div is="flynt-list-products" class="flyntComponent">
   <div class="listProducts">
-    <h2><a href="{{ overviewPage }}">{{ titleText }}</a></h2>
+    {% if isArchive %}
+      <h2>Archive</h2>
+    {% else %}
+      <h2><a href="{{ overviewPage }}">{{ titleText }}</a></h2>
+    {% endif %}
     {% if products %}
     <ul>
       {% for product in products %}
