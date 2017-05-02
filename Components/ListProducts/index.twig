@@ -5,14 +5,33 @@
     {% else %}
       <h2><a href="{{ overviewPage }}">{{ titleText }}</a></h2>
       {% if image %}
-      <img class="blockImage-imageElement" srcset="
-        {{ image.src | resize(576, 288) }} 576w,
-        {{ image.src | resize(768, 384) }} 768w,
-        {{ image.src | resize(1200, 600) }} 1200w,
-        {{ image.src | resize(1440, 720) }} 1440w"
-        src="{{ image.src }}"
-        sizes="(min-width: 800px) 800px, 100vw"
-        alt="{{ image.alt }}">
+        <img class="listProducts-imageElement" srcset="
+          {{ image.src | resize(576, 288) }} 576w,
+          {{ image.src | resize(768, 384) }} 768w,
+          {{ image.src | resize(1200, 600) }} 1200w,
+          {{ image.src | resize(1440, 720) }} 1440w"
+          src="{{ image.src }}"
+          sizes="(min-width: 800px) 800px, 100vw"
+          alt="{{ image.alt }}">
+      {% endif %}
+      {% if someRepeater %}
+        <div>
+          <ul>
+            {% for option in someRepeater %}
+              <li>
+                <img class="listProducts-imageElement" srcset="
+                  {{ option.image.src | resize(576, 288) }} 576w,
+                  {{ option.image.src | resize(768, 384) }} 768w,
+                  {{ option.image.src | resize(1200, 600) }} 1200w,
+                  {{ option.image.src | resize(1440, 720) }} 1440w"
+                  src="{{ option.image.src }}"
+                  sizes="(min-width: 100px) 100px, 100vw"
+                  alt="{{ option.image.alt }}">
+                {{ option.description }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       {% endif %}
     {% endif %}
     {% if products %}

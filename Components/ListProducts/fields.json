@@ -8,7 +8,23 @@
         "label": "Title",
         "type": "text"
       },
-      "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
+      "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image",
+      {
+        "name": "someRepeater",
+        "label": "Some Repeater",
+        "type": "repeater",
+        "min": 0,
+        "max": 5,
+        "sub_fields": [
+          {
+            "name": "description",
+            "label": "Description",
+            "type": "text",
+            "required": 1
+          },
+          "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
+        ]
+      }
     ]
   }
 }
