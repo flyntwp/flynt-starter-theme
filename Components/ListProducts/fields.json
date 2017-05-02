@@ -7,7 +7,8 @@
         "name": "titleText",
         "label": "Title",
         "type": "text"
-      }
+      },
+      "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
     ]
   }
 }
