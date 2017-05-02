@@ -13,10 +13,10 @@ add_filter('Flynt/addComponentData?name=ListProducts', function ($data) {
     $data['productTypesLabel'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'productTypesLabel');
     $data['overviewPage'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'overviewPage');
     if (isset($data['defaultImage']) && !empty($data['defaultImage'])) {
-      $data['image'] = $data['defaultImage'];
+        $data['image'] = $data['defaultImage'];
     }
     if (isset($data['defaultTitleText']) && !empty($data['defaultTitleText'])) {
-      $data['titleText'] = $data['defaultTitleText'];
+        $data['titleText'] = $data['defaultTitleText'];
     }
     $args = [
         'post_type' => 'product',
