@@ -1,0 +1,16 @@
+{
+  "globalOptions": [
+    {
+      "name": "someFeatureNumber",
+      "label": "Some Feature Number",
+      "type": "number"
+    }
+  ],
+  "translatableOptions": [
+    {
+      "name": "someContent",
+      "label": "Some Content",
+      "type": "text"
+    }
+  ]
+}

@@ -68,6 +68,8 @@ function initTheme()
     add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio'));
 
     add_theme_support('flynt-password-form');
+
+    add_theme_support('flynt-some-product-feature');
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\initTheme');
 

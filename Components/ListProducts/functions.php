@@ -18,6 +18,8 @@ add_filter('Flynt/addComponentData?name=ListProducts', function ($data) {
     if (isset($data['defaultTitleText']) && !empty($data['defaultTitleText'])) {
         $data['titleText'] = $data['defaultTitleText'];
     }
+    $someFeatureNumber = OptionPages::getOption('globalOptions', 'feature', 'someProductFeature', 'someFeatureNumber');
+    $someContent = OptionPages::getOption('translatableOptions', 'feature', 'someProductFeature', 'someContent');
     $args = [
         'post_type' => 'product',
         'posts_per_page' => ($defaultCount) ? $defaultCount : 10,
