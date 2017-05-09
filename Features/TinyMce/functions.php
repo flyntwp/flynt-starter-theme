@@ -2,6 +2,8 @@
 
 namespace Flynt\Features\TinyMce;
 
+use Flynt\Utils\Asset;
+
 // Clean Up TinyMCE Buttons
 
 // First Bar
@@ -68,4 +70,7 @@ add_filter('tiny_mce_before_init', function ($init_array) {
     return $init_array;
 });
 
-add_editor_style('Features/TinyMce/customEditorStyle.css');
+$customEditorStylePath = Asset::requirePath('Features/TinyMce/customEditorStyle.css');
+$templateDirectory = get_template_directory();
+$customEditorStylePath = str_replace($templateDirectory . '/', '', $customEditorStylePath);
+add_editor_style($customEditorStylePath);
