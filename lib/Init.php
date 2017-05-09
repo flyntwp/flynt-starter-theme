@@ -70,6 +70,7 @@ function initTheme()
     add_theme_support('flynt-password-form');
 
     add_theme_support('flynt-some-product-feature');
+    add_theme_support('flynt-product-tiny-mce');
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\initTheme');
 

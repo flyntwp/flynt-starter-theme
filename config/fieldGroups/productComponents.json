@@ -17,8 +17,10 @@
         {
           "name": "optionDescription",
           "label": "Description",
-          "type": "text",
-          "required": 1
+          "type": "wysiwyg",
+          "required": 1,
+          "media_upload": 0,
+          "toolbar": "product"
         },
         "Flynt/Components/BlockImage/Fields/Layout/SubFields/Image"
       ]
