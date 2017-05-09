@@ -8,7 +8,7 @@ namespace Flynt\Features\TinyMce;
 add_filter('mce_buttons', function ($buttons) {
     return [
     'formatselect',
-    // 'styleselect',
+    'styleselect',
     'bold',
     'italic',
     'underline',
@@ -55,3 +55,17 @@ add_filter('tiny_mce_before_init', function ($init) {
     $init['block_formats'] = 'Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6';
     return $init;
 });
+
+add_filter('tiny_mce_before_init', function ($init_array) {
+    $style_formats = array(
+        [
+            'title' => 'Turquoise Colour ',
+            'inline' => 'span',
+            'classes' => 'color-highlight'
+        ]
+    );
+    $init_array['style_formats'] = json_encode($style_formats);
+    return $init_array;
+});
+
+add_editor_style('Features/TinyMce/customEditorStyle.css');
