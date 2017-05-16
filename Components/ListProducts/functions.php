@@ -9,17 +9,17 @@ use Timber\Post;
 use Flynt\Utils\Log;
 
 add_filter('Flynt/addComponentData?name=ListProducts', function ($data) {
-    $defaultCount = OptionPages::getOption('globalOptions', 'customPostType', 'product', 'defaultProductsNumber');
-    $data['productTypesLabel'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'productTypesLabel');
-    $data['overviewPage'] = OptionPages::getOption('translatableOptions', 'customPostType', 'product', 'overviewPage');
+    $defaultCount = OptionPages::get('globalOptions', 'customPostType', 'product', 'defaultProductsNumber');
+    $data['productTypesLabel'] = OptionPages::get('translatableOptions', 'customPostType', 'product', 'productTypesLabel');
+    $data['overviewPage'] = OptionPages::get('translatableOptions', 'customPostType', 'product', 'overviewPage');
     if (isset($data['defaultImage']) && !empty($data['defaultImage'])) {
         $data['image'] = $data['defaultImage'];
     }
     if (isset($data['defaultTitleText']) && !empty($data['defaultTitleText'])) {
         $data['titleText'] = $data['defaultTitleText'];
     }
-    $data['someFeatureNumber'] = OptionPages::getOption('globalOptions', 'feature', 'someProductFeature', 'someFeatureNumber');
-    $data['someContent'] = OptionPages::getOption('translatableOptions', 'feature', 'someProductFeature', 'someContent');
+    $data['someFeatureNumber'] = OptionPages::get('globalOptions', 'feature', 'someProductFeature', 'someFeatureNumber');
+    $data['someContent'] = OptionPages::get('translatableOptions', 'feature', 'someProductFeature', 'someContent');
     $args = [
         'post_type' => 'product',
         'posts_per_page' => ($defaultCount) ? $defaultCount : 10,
