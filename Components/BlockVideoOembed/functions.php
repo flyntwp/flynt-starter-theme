@@ -16,6 +16,8 @@ add_filter('Flynt/addComponentData?name=BlockVideoOembed', function ($data) {
             'autoplay' => 'true'
         ]
     );
-
+    if (empty($data['posterImage'])) {
+        $data['posterImage'] = $data['defaultPosterImage'];
+    }
     return $data;
 });
