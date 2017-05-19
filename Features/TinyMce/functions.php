@@ -2,75 +2,72 @@
 
 namespace Flynt\Features\TinyMce;
 
+use Flynt\Utils\Feature;
 use Flynt\Utils\Asset;
 
-// Clean Up TinyMCE Buttons
+// Load TinyMCE Settings from config file
 
-// First Bar
+// First Toolbar
 add_filter('mce_buttons', function ($buttons) {
-    return [
-    'formatselect',
-    'styleselect',
-    'bold',
-    'italic',
-    'underline',
-    'strikethrough',
-    '|',
-    'bullist',
-    'numlist',
-    '|',
-    // 'outdent',
-    // 'indent',
-    // 'blockquote',
-    // 'hr',
-    // '|',
-    // 'alignleft',
-    // 'aligncenter',
-    // 'alignright',
-    // 'alignjustify',
-    // '|',
-    'link',
-    'unlink',
-    '|',
-    // 'forecolor',
-    'wp_more',
-    // 'charmap',
-    // 'spellchecker',
-    'pastetext',
-    'removeformat',
-    '|',
-    'undo',
-    'redo',
-    // 'wp_help',
-    'fullscreen',
-    // 'wp_adv', // toggle visibility of 2 menu level
-    ];
+    $config = getConfig();
+    if ($config && isset($config['toolbars'])) {
+        $toolbars = $config['toolbars'];
+        if (isset($toolbars['default']) && isset($toolbars['default'][0])) {
+            return $toolbars['default'][0];
+        }
+    }
+    return $buttons;
 });
 
-// Second Bar
+// Second Toolbar
 add_filter('mce_buttons_2', function ($buttons) {
     return [];
 });
 
 add_filter('tiny_mce_before_init', function ($init) {
-    // Add block format elements you want to show in dropdown
-    $init['block_formats'] = 'Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6';
+    $config = getConfig();
+    if ($config) {
+        if (isset($config['blockformats'])) {
+            $init['block_formats'] = getBlockFormats($config['blockformats']);
+        }
+
+        if (isset($config['styleformats'])) {
+            // Send it to style_formats as true js array
+            $init['style_formats'] = json_encode($config['styleformats']);
+        }
+    }
     return $init;
 });
 
-add_filter('tiny_mce_before_init', function ($init_array) {
-    $style_formats = array(
-        [
-            'title' => 'Turquoise Colour ',
-            'inline' => 'span',
-            'classes' => 'color-highlight'
-        ]
-    );
-    $init_array['style_formats'] = json_encode($style_formats);
-    return $init_array;
+add_filter('acf/fields/wysiwyg/toolbars', function ($toolbars) {
+    // Load Toolbars and parse them into TinyMCE
+    $config = getConfig();
+    if ($config && !empty($config['toolbars'])) {
+        $toolbars = array_map(function ($toolbar) {
+            array_unshift($toolbar, []);
+            return $toolbar;
+        }, $config['toolbars']);
+    }
+    return $toolbars;
 });
 
-$customEditorStylePath = Asset::requirePath('Features/TinyMce/customEditorStyle.css');
-$templateDirectory = get_template_directory();
-$customEditorStylePath = str_replace($templateDirectory . '/', '', $customEditorStylePath);
-add_editor_style($customEditorStylePath);
+function getConfig()
+{
+    $filePath = Asset::requirePath('/Features/TinyMce/config.json');
+    if (file_exists($filePath)) {
+        return json_decode(file_get_contents($filePath), true);
+    } else {
+        return false;
+    }
+}
+
+function getBlockFormats($blockFormats)
+{
+    if (!empty($blockFormats)) {
+        $blockFormatStrings = array_map(function ($tag, $label) {
+            return "${label}=${tag}";
+        }, $blockFormats, array_keys($blockFormats));
+        return implode($blockFormatStrings, ';');
+    }
+    return '';
+}
