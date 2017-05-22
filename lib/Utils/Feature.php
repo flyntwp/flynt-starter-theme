@@ -38,7 +38,8 @@ class Feature
 
                 self::$features[$feature] = [
                 'options' => $options,
-                'dir' => $dir
+                'dir' => $dir,
+                'name' => $prettyName
                 ];
 
                 require_once $file;
