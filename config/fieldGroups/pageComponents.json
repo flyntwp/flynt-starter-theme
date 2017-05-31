@@ -13,6 +13,7 @@
         "Flynt/Components/BlockVideoOembed/Fields/Layout",
         "Flynt/Components/BlockWysiwyg/Fields/Layout",
         "Flynt/Components/ListProducts/Fields/Layout",
+        "Flynt/Components/ListPosts/Fields/Layout",
         "Flynt/Components/SliderMedia/Fields/Layout"
       ]
     }
