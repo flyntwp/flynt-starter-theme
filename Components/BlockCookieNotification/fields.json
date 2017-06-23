@@ -14,21 +14,6 @@
       "type": "text",
       "default_value": "Accept Cookies",
       "required": 1
-    },
-    {
-      "label": "Optout Link Label",
-      "name": "optoutLinkLabel",
-      "type": "text",
-      "default_value": "Turn of Google Analytics tracking",
-      "required": 1
-    }
-  ],
-  "globalOptions": [
-    {
-      "label": "Google Analytics ID",
-      "name": "googleAnalyticsID",
-      "type": "text",
-      "required": 1
     }
   ]
 }
