@@ -42,5 +42,21 @@
       "maxlength": 500,
       "placeholder" : "Separate IP addresses with commas"
     }
+  ],
+  "translatableOptions": [
+    {
+      "name": "optoutConfirm",
+      "label": "Optout Confirm Text",
+      "type": "text",
+      "required": 1,
+      "default_value": "Are you sure you want to optout of Google Analytics?"
+    },
+    {
+      "name": "optoutSuccess",
+      "label": "Optout Success Text",
+      "type": "text",
+      "required": 1,
+      "default_value": "You successfully optout from Google Analytics for this website."
+    }
   ]
 }
