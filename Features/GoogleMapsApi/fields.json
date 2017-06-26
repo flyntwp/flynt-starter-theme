@@ -1,9 +1,0 @@
-{
-  "globalOptions": [
-    {
-      "label": "Google Maps API Key",
-      "name": "apiKey",
-      "type": "text"
-    }
-  ]
-}

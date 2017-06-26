@@ -6,7 +6,7 @@ use Flynt\Features\Components\Component;
 use Flynt\Features\Acf\OptionPages;
 
 add_action('wp_enqueue_scripts', function () {
-    $GoogleMapsApiGlobalOptions = OptionPages::get('globalOptions', 'feature', 'GoogleMapsApi');
+    $apiKey = OptionPages::get('globalOptions', 'feature', 'Acf', 'googleMapsApiKey');
     $enqueuedAssets = [
         [
             'type' => 'script',
@@ -16,11 +16,11 @@ add_action('wp_enqueue_scripts', function () {
         ]
     ];
 
-    if (isset($GoogleMapsApiGlobalOptions['apiKey'])) {
+    if ($apiKey) {
         array_push($enqueuedAssets, [
             'type' => 'script',
             'name' => 'GoogleMapsApi',
-            'path' => 'https://maps.googleapis.com/maps/api/js?key=' . $GoogleMapsApiGlobalOptions['apiKey']
+            'path' => 'https://maps.googleapis.com/maps/api/js?key=' . $apiKey
         ]);
     }
 
