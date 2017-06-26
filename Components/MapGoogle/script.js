@@ -42,7 +42,7 @@ class MapGoogle extends window.HTMLDivElement {
     this.initGoogleMarker()
     this.initInfoWindow()
 
-    this.infoWindow.open(this.marp, this.marker)
+    this.infoWindow.open(this.map, this.marker)
   }
 
   redrawMap = () => {
@@ -65,6 +65,7 @@ class MapGoogle extends window.HTMLDivElement {
       },
       zoom: this.location.zoom
     })
+
     this.map = new google.maps.Map(this.$wrapper.get(0), this.gmapSettings)
   }
 
@@ -77,6 +78,7 @@ class MapGoogle extends window.HTMLDivElement {
       },
       map: this.map
     })
+
     this.marker = new google.maps.Marker(this.markerSettings)
   }
 
