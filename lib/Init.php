@@ -69,6 +69,9 @@ function initTheme()
     // google analytics
     add_theme_support('flynt-google-analytics');
 
+    // google maps api
+    add_theme_support('flynt-google-maps-api');
+
     // hide protected posts
     add_theme_support('flynt-hide-protected-posts');
 

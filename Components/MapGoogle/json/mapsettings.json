@@ -1,0 +1,16 @@
+{
+  "clickableIcons": false,
+  "disableDefaultUI": true,
+  "disableDoubleClickZoom": true,
+  "draggable": true,
+  "fullscreenControl": false,
+  "heading": 0,
+  "keyboardShortcuts": false,
+  "panControl": false,
+  "rotateControl": false,
+  "scaleControl": false,
+  "scrollwheel": false,
+  "streetViewControl": false,
+  "tilt": 0,
+  "zoomControl": false
+}
