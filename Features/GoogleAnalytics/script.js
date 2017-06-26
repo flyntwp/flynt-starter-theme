@@ -1,6 +1,7 @@
-/* global wpData */
+/* global wpData, Cookies */
 
 import $ from 'jquery'
+import 'file-loader?name=vendor/js-cookie.js!js-cookie/src/js.cookie'
 
 const $gaOptoutLinks = $('.globalAction-optoutGa')
 const data = wpData
@@ -25,16 +26,10 @@ if (alreadyOptedOut) {
 }
 
 function setOptoutCookie () {
-  document.cookie = 'disableGa=true'
+  Cookies.set('disableGa', true)
   $gaOptoutLinks.remove()
 }
 
 function getOptoutCookie () {
-  const value = document.cookie
-  const parts = value.split('; disableGa=')
-  if (parts.length === 2) {
-    return parts.pop().split(';').shift()
-  } else {
-    return false
-  }
+  return Cookies.get('disableGa')
 }

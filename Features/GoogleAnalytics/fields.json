@@ -45,18 +45,18 @@
   ],
   "translatableOptions": [
     {
-      "name": "optoutConfirm",
+      "name": "optOutConfirm",
       "label": "Optout Confirm Text",
       "type": "text",
       "required": 1,
-      "default_value": "Are you sure you want to optout of Google Analytics?"
+      "default_value": "Are you sure you want to opted out of Google Analytics?"
     },
     {
-      "name": "optoutSuccess",
+      "name": "optOutSuccess",
       "label": "Optout Success Text",
       "type": "text",
       "required": 1,
-      "default_value": "You successfully optout from Google Analytics for this website."
+      "default_value": "You successfully opted out from Google Analytics for this website."
     }
   ]
 }

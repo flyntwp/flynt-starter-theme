@@ -1,3 +1,7 @@
+/* globals Cookies */
+
+import 'file-loader?name=vendor/js-cookie.js!js-cookie/src/js.cookie'
+
 export function getOptions (optionContainer) {
   return {
     expireDays: 7,
@@ -7,9 +11,10 @@ export function getOptions (optionContainer) {
 
 export function acceptCookies ($container, cookieName, expireDays) {
   return function (e) {
-    const date = new Date()
-    date.setTime(date.getTime() + (expireDays * 24 * 60 * 60 * 1000))
-    document.cookie = cookieName + '=true; expires=' + date.toGMTString()
+    Cookies.set(cookieName, true, {
+      expires: expireDays
+    })
+
     $container.remove()
   }
 }

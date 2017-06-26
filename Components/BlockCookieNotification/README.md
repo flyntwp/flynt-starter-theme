@@ -8,7 +8,6 @@ Block Cookie Notification
 
 ### Category:
 
-Select one of :
 Block
 
 ---
@@ -21,7 +20,7 @@ cookie, notification, fixed, alert
 
 ### Description:
 
-A Base Component for cookie notifications (fixed, bottom)
+A base component for cookie notifications (fixed, bottom)
 
 ---
 

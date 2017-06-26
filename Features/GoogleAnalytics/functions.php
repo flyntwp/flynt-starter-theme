@@ -17,21 +17,28 @@ function init()
 {
     $googleAnalyticsOptions = OptionPages::get('globalOptions', 'feature', 'GoogleAnalytics');
     $googleAnalyticsOptionsTranslatable = OptionPages::get('translatableOptions', 'feature', 'GoogleAnalytics');
+
     if ($googleAnalyticsOptions) {
         new GoogleAnalytics($googleAnalyticsOptions);
     }
 
     Asset::enqueue([
         'type' => 'script',
+        'name' => 'js-cookie',
+        'path' => 'vendor/js-cookie.js'
+    ]);
+
+    Asset::enqueue([
+        'type' => 'script',
         'name' => 'Flynt/Features/GoogleAnalytics',
         'path' => 'Features/GoogleAnalytics/script.js',
-        'dependencies' => ['jquery']
+        'dependencies' => ['jquery', 'js-cookie']
     ]);
 
     $data = [
         'gaId' => $googleAnalyticsOptions['gaId'],
-        'confirm' => $googleAnalyticsOptionsTranslatable['optoutConfirm'],
-        'success' => $googleAnalyticsOptionsTranslatable['optoutSuccess']
+        'confirm' => (isset($googleAnalyticsOptionsTranslatable['optOutConfirm'])) ? $googleAnalyticsOptionsTranslatable['optOutConfirm'] : '',
+        'success' => (isset($googleAnalyticsOptionsTranslatable['optOutSuccess'])) ? $googleAnalyticsOptionsTranslatable['optOutSuccess'] : ''
     ];
     wp_localize_script('Flynt/Features/GoogleAnalytics', 'wpData', $data);
 }
