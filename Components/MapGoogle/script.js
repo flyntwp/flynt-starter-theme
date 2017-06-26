@@ -26,9 +26,9 @@ class MapGoogle extends window.HTMLDivElement {
 
   connectedCallback () {
     this.location = {
-      'lat': this.$wrapper.data('lat'),
-      'lng': this.$wrapper.data('lng'),
-      'zoom': this.$wrapper.data('zoom')
+      'lat': parseFloat(this.$wrapper.data('lat')),
+      'lng': parseFloat(this.$wrapper.data('lng')),
+      'zoom': parseFloat(this.$wrapper.data('zoom'))
     }
 
     this.infoContent = JSON.parse(this.$wrapper.data('content'))
