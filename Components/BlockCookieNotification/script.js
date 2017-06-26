@@ -7,7 +7,6 @@ class BlockCookieNotification extends window.HTMLDivElement {
     self = super(self)
     self.$ = $(self)
     self.setOptions()
-    self.resolveElements()
     return self
   }
 
@@ -15,10 +14,6 @@ class BlockCookieNotification extends window.HTMLDivElement {
     this.options = {
       acceptButton: acceptButton.getOptions()
     }
-  }
-
-  resolveElements () {
-    
   }
 
   connectedCallback () {
