@@ -29,13 +29,6 @@ export function checkCookies ($container, cookieName) {
   }
 }
 
-function getCookieValue (cookie) {
-  const value = '; ' + document.cookie
-  const parts = value.split('; ' + cookie + '=')
-
-  if (parts.length === 2) {
-    return parts.pop().split(';').shift()
-  } else {
-    return false
-  }
+function getCookieValue (cookieName) {
+  return Cookies.get(cookieName)
 }

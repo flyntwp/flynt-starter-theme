@@ -1,12 +1,10 @@
 <div class="flyntComponent" is="flynt-block-cookie-notification">
   <div class="notification">
     <div class="notification-container">
-      <div class="notificationText">
+      <div class="notification-text">
         {{ content }}
       </div>
-      <div class="notification-bottom">
-        {% include 'Partials/AcceptButton/index.twig' %}
-      </div>
+      {% include 'Partials/AcceptButton/index.twig' %}
     </div>
   </div>
 </div>

@@ -5,12 +5,12 @@ $containerPadding = lookup('$globalLayoutContainerPadding') || 15px
 $containerMaxWidth = lookup('$globalLayoutContainerMaxWidth') || 1140px
 
 .flyntComponent[is="flynt-block-cookie-notification"]
-  display: none
   bottom: 0
+  display: none
   left: 0
   position: fixed
   width: 100%
-  z-index: 5
+  z-index: 9
 
   &.cookieNotification-isVisible
     display: block
@@ -22,8 +22,20 @@ $containerMaxWidth = lookup('$globalLayoutContainerMaxWidth') || 1140px
 
   .notification
     background: #fff
-    border-top: 1px solid #ccc
-    padding: 8px
+    padding-bottom: 5px
+    padding-top: 5px
 
     &-container
       center($containerMaxWidth, $containerPadding)
+
+    // Resetting first child elements margin-top to fix collapsing margins
+    &-text
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6
+        &:first-child
+          margin-top: 0
