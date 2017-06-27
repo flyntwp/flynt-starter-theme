@@ -20,6 +20,7 @@ $colorAccent = lookup('$globalColorAccent') || #F98928
       left: 0
       margin: 0
       opacity: 0
+      overflow: auto
       padding-top: $navigationHeight
       position: fixed
       top: 0
@@ -31,32 +32,30 @@ $colorAccent = lookup('$globalColorAccent') || #F98928
       &-hasNoTransition
         transition: none
 
-  &-item
-    &--level0
-      float: left
-      margin: 0
-      padding: 0
-      position: relative
+      ~/.navigationMain-isActive .menu.menu--level0
+        visibility: visible
+        opacity: 1
 
-      +below('s')
-        display: block
-        float: none
+.menu .menu-item
+  &--level0
+    float: left
+    margin: 0
+    padding: 0
+    position: relative
 
-  &-link
-    &--level0
-      color: #000
+    +below('s')
+      display: block
+      float: none
 
-// Hover states for menu level 0
-.menu--level0 .current-menu-item .menu-link.menu-link--level0,
-.menu--level0 .current-menu-ancestor .menu-link.menu-link--level0,
-.menu--level0 .menu-item--level0:hover .menu-link
-  color: $colorAccent
+    &.current-menu-item,
+    &.current-menu-ancestor,
+    &:hover
+      & .menu-link--level0
+        color: $colorAccent
 
-  +below('s')
-    color: $colorAccent
+        +below('s')
+          color: $colorAccent
 
-// Toggled mobile navigation
-.navigationMain-isActive .menu--level0
-  +below('s')
-    visibility: visible
-    opacity: 1
+.menu .menu-link
+  &--level0
+    color: #000

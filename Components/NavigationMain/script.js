@@ -11,7 +11,6 @@ class NavigationMain extends window.HTMLElement {
 
   resolveElements () {
     this.$hamburger = $('.hamburger', this)
-    this.$navigation = $('.navigationMain', this)
     this.$menu = $('.menu', this)
     this.$body = $('body')
   }
@@ -32,7 +31,7 @@ class NavigationMain extends window.HTMLElement {
 
   triggerMenu = (e) => {
     e.preventDefault()
-    this.$navigation.toggleClass(this.options.activeMenuClass)
+    this.$.toggleClass(this.options.activeMenuClass)
     this.$body.toggleClass(this.options.activeMenuClass)
   }
 

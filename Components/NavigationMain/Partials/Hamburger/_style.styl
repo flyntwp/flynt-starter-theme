@@ -48,25 +48,25 @@ $animationSpeed = .15s
   +below('s')
     display: block
 
-.navigationMain-isActive .hamburger
-  &:before,
-  &:after
-    opacity: 0
+  ~/.navigationMain-isActive .hamburger
+    &:before,
+    &:after
+      opacity: 0
 
-  &:before
-    transform: scale(0) translateY(10px)
+    &:before
+      transform: scale(0) translateY(10px)
 
-  &:after
-    transform: scale(0) translateY(-10px)
+    &:after
+      transform: scale(0) translateY(-10px)
 
-  &-barPrimary
-    transform: rotate(45deg)
+    &-barPrimary
+      transform: rotate(45deg)
 
-  &-barSecondary
-    transform: rotate(-45deg)
+    &-barSecondary
+      transform: rotate(-45deg)
 
-  &:before,
-  &:after,
-  &-barPrimary,
-  &-barSecondary
-    background: $colorBarsActive
+    &:before,
+    &:after,
+    &-barPrimary,
+    &-barSecondary
+      background: $colorBarsActive
