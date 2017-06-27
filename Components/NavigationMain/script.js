@@ -1,5 +1,7 @@
 import $ from 'jquery'
 
+import * as Hamburger from './Partials/Hamburger/script'
+
 class NavigationMain extends window.HTMLElement {
   constructor (self) {
     self = super(self)
@@ -17,8 +19,7 @@ class NavigationMain extends window.HTMLElement {
 
   setOptions () {
     this.options = {
-      noTransitionClass: 'menu-hasNoTransition',
-      activeMenuClass: 'navigationMain-isActive'
+      noTransitionClass: 'menu-hasNoTransition'
     }
 
     this.enableTransitionTimeout = false
@@ -31,14 +32,13 @@ class NavigationMain extends window.HTMLElement {
 
   triggerMenu = (e) => {
     e.preventDefault()
-    this.$.toggleClass(this.options.activeMenuClass)
-    this.$body.toggleClass(this.options.activeMenuClass)
+    Hamburger.toggleActiveMenuClass(this.$, this.$body)
   }
 
   handleTransitionState = () => {
     this.disableMenuTransition()
     clearTimeout(this.enableTransitionTimeout)
-    this.enableTransitionTimeout = setTimeout(this.enableMenuTransition, 150)
+    this.enableTransitionTimeout = setTimeout(this.enableMenuTransition, 250)
   }
 
   disableMenuTransition () {
