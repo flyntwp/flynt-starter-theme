@@ -7,13 +7,6 @@
       "media_upload": 0,
       "delay": 1,
       "required": 1
-    },
-    {
-      "label": "Accept Button Label",
-      "name": "acceptButtonLabel",
-      "type": "text",
-      "default_value": "Accept Cookies",
-      "required": 1
     }
   ]
 }

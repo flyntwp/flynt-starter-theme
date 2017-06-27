@@ -1,24 +1,20 @@
 import $ from 'jquery'
 
-import * as acceptButton from './Partials/AcceptButton/script.js'
+import * as acceptButton from './Partials/AcceptButton/script'
 
 class BlockCookieNotification extends window.HTMLDivElement {
   constructor (self) {
     self = super(self)
     self.$ = $(self)
-    self.setOptions()
     return self
   }
 
-  setOptions () {
-    this.options = {
-      acceptButton: acceptButton.getOptions()
-    }
-  }
-
   connectedCallback () {
-    this.$.on('click', '.acceptButton', acceptButton.acceptCookies(this.$, this.options.acceptButton.cookieName, this.options.acceptButton.expireDays))
-    acceptButton.checkCookies(this.$, this.options.acceptButton.cookieName)
+    this.$.on('click', '.acceptButton', (e) => {
+      e.preventDefault()
+      acceptButton.acceptCookies(this.$)
+    })
+    acceptButton.checkCookies(this.$)
   }
 }
 

@@ -2,24 +2,31 @@
 
 import 'file-loader?name=vendor/js-cookie.js!js-cookie/src/js.cookie'
 
-export function getOptions (optionContainer) {
-  return {
-    expireDays: 7,
-    cookieName: 'cookies_accepted'
-  }
+const options = {
+  expireDays: 7,
+  cookieName: 'cookies_accepted'
 }
 
-export function acceptCookies ($container, cookieName, expireDays) {
-  return function (e) {
-    Cookies.set(cookieName, true, {
-      expires: expireDays
-    })
-
-    $container.remove()
-  }
+export function getOptions () {
+  return options
 }
 
-export function checkCookies ($container, cookieName) {
+export function acceptCookies (
+  $container,
+  cookieName = options.cookieName,
+  expireDays = options.expireDays
+) {
+  Cookies.set(cookieName, true, {
+    expires: expireDays
+  })
+
+  $container.remove()
+}
+
+export function checkCookies (
+  $container,
+  cookieName = options.cookieName
+) {
   const cookiesAccepted = getCookieValue(cookieName)
 
   if (!cookiesAccepted) {
