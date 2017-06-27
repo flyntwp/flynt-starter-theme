@@ -7,43 +7,56 @@ $colorBackground = lookup('$globalColorBackground') || #fff
 $colorAccent = lookup('$globalColorAccent') || #F98928
 
 .menu
-  clearfix()
-  float: right
-  list-style: none
-  margin: 0
-  padding: 0
-
-  +below('s')
-    background: $colorMenuBackground
-    height: 100%
-    left: 0
-    margin: 0
-    opacity: 0
-    padding-top: $navigationHeight
-    position: fixed
-    top: 0
-    transition: opacity .35s, visibility .35s
-    visibility: hidden
-    width: 100%
-    z-index: 10
-
-  &-item
-    float: left
+  &--level0
+    clearfix()
+    float: right
+    list-style: none
     margin: 0
     padding: 0
 
     +below('s')
-      display: block
-      float: none
+      background: $colorMenuBackground
+      height: 100%
+      left: 0
+      margin: 0
+      opacity: 0
+      padding-top: $navigationHeight
+      position: fixed
+      top: 0
+      transition: opacity .35s, visibility .35s
+      visibility: hidden
+      width: 100%
+      z-index: 10
 
-  .current-menu-item .menu-link,
-  .current-menu-ancestor .menu-link
-    color: $colorMenuLinkHover
+      &-hasNoTransition
+        transition: none
 
-    +below('s')
-      color: $colorMenuLinkMobile
+  &-item
+    &--level0
+      float: left
+      margin: 0
+      padding: 0
+      position: relative
 
-.navigationMain-isActive .menu
+      +below('s')
+        display: block
+        float: none
+
+  &-link
+    &--level0
+      color: #000
+
+// Hover states for menu level 0
+.menu--level0 .current-menu-item .menu-link.menu-link--level0,
+.menu--level0 .current-menu-ancestor .menu-link.menu-link--level0,
+.menu--level0 .menu-item--level0:hover .menu-link
+  color: $colorAccent
+
+  +below('s')
+    color: $colorAccent
+
+// Toggled mobile navigation
+.navigationMain-isActive .menu--level0
   +below('s')
     visibility: visible
     opacity: 1
