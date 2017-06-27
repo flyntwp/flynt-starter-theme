@@ -2,6 +2,7 @@
 
 import $ from 'jquery'
 import 'file-loader?name=vendor/jquery-throttle-debounce.js!jquery-throttle-debounce/jquery.ba-throttle-debounce'
+import * as MapsHelper from './helper'
 
 /* You can use https://mapstyle.withgoogle.com/ to style your map for your needs */
 import mapStyles from './json/mapstyles.json'
@@ -25,12 +26,7 @@ class MapGoogle extends window.HTMLDivElement {
   }
 
   connectedCallback () {
-    this.location = {
-      'lat': parseFloat(this.$wrapper.data('lat')),
-      'lng': parseFloat(this.$wrapper.data('lng')),
-      'zoom': parseFloat(this.$wrapper.data('zoom'))
-    }
-
+    this.location = MapsHelper.getLocationFromContainer(this.$wrapper)
     this.infoContent = JSON.parse(this.$wrapper.data('content'))
 
     this.initMap()
@@ -46,50 +42,22 @@ class MapGoogle extends window.HTMLDivElement {
   }
 
   redrawMap = () => {
-    this.map.setCenter({
-      lat: this.location.lat,
-      lng: this.location.lng
-    })
-
-    this.map.setZoom(this.location.zoom)
+    MapsHelper.resetMap(this.location, this.map)
   }
 
   initGoogleMap () {
-    this.gmapSettings = mapSettings
-    Object.assign(this.gmapSettings, {
-      scrollwheel: false,
-      styles: mapStyles,
-      center: {
-        lat: this.location.lat,
-        lng: this.location.lng
-      },
-      zoom: this.location.zoom
-    })
-
+    this.gmapSettings = MapsHelper.assignMapsSettings(this.location, mapSettings, mapStyles)
     this.map = new google.maps.Map(this.$wrapper.get(0), this.gmapSettings)
   }
 
   initGoogleMarker () {
-    this.markerSettings = markerSettings
-    Object.assign(this.markerSettings, {
-      position: {
-        lat: this.location.lat,
-        lng: this.location.lng
-      },
-      map: this.map
-    })
-
+    this.markerSettings = MapsHelper.assignMarkerSettings(this.location, markerSettings, this.map)
     this.marker = new google.maps.Marker(this.markerSettings)
+    console.log(this.marker)
   }
 
   initInfoWindow () {
-    this.infoWindow = new google.maps.InfoWindow({
-      content: this.infoContent
-    })
-
-    this.marker.addListener('click', () => {
-      this.infoWindow.open(this.map, this.marker)
-    })
+    this.infoWindow = MapsHelper.addInfoWindow(this.infoContent, this.marker, this.map)
   }
 }
 
