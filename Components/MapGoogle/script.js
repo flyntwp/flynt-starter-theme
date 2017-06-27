@@ -53,7 +53,6 @@ class MapGoogle extends window.HTMLDivElement {
   initGoogleMarker () {
     this.markerSettings = MapsHelper.assignMarkerSettings(this.location, markerSettings, this.map)
     this.marker = new google.maps.Marker(this.markerSettings)
-    console.log(this.marker)
   }
 
   initInfoWindow () {
