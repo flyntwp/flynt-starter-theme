@@ -26,14 +26,24 @@ class MapGoogle extends window.HTMLDivElement {
   }
 
   connectedCallback () {
+    const apiKey = this.$.data('key')
     this.location = MapsHelper.getLocationFromContainer(this.$wrapper)
     this.infoContent = JSON.parse(this.$wrapper.data('content'))
+    window.FlyntExternalScriptLoader.getInstance().initialize('googleMaps', {
+      apiKey
+    })
+    .then(() => {
+      this.initMap()
+    })
+  }
 
+  apiIsLoaded () {
+    window.GoogleMapsAPIIsLoaded = true
     this.initMap()
-    $(window).on('resize', $.debounce(250, this.redrawMap))
   }
 
   initMap () {
+    $(window).on('resize', $.debounce(250, this.redrawMap))
     this.initGoogleMap()
     this.initGoogleMarker()
     this.initInfoWindow()

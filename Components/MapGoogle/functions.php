@@ -4,9 +4,9 @@ namespace Flynt\Components\MapGoogle;
 
 use Flynt\Features\Components\Component;
 use Flynt\Features\Acf\OptionPages;
+use Flynt\Utils\Asset;
 
 add_action('wp_enqueue_scripts', function () {
-    $apiKey = OptionPages::get('globalOptions', 'feature', 'acf', 'googleMapsApiKey');
     $enqueuedAssets = [
         [
             'type' => 'script',
@@ -16,18 +16,11 @@ add_action('wp_enqueue_scripts', function () {
         ]
     ];
 
-    if ($apiKey) {
-        array_push($enqueuedAssets, [
-            'type' => 'script',
-            'name' => 'GoogleMapsApi',
-            'path' => 'https://maps.googleapis.com/maps/api/js?key=' . $apiKey
-        ]);
-    }
-
     Component::enqueueAssets('MapGoogle', $enqueuedAssets);
 });
 
 add_filter('Flynt/addComponentData?name=MapGoogle', function ($data) {
     $data['infoContent'] = htmlspecialchars(json_encode($data['infoContent']));
+    $data['apiKey'] = OptionPages::get('globalOptions', 'feature', 'acf', 'googleMapsApiKey');
     return $data;
 });

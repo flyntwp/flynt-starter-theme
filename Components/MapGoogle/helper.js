@@ -1,5 +1,7 @@
 /* globals google */
 
+import $ from 'jquery'
+
 /**
  * Concatenates default settings and user-defined settings to one object for use in maps object
  * @param  {object} location    [object containing latitude, longitude and zoom value]
