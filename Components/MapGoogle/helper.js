@@ -1,11 +1,11 @@
 /* globals google */
 
 /**
- * Concatinates default settings and cms data to one object for use in maps object
- * @param  {object} location    [object containing lat, lang and zoom value]
+ * Concatenates default settings and user-defined settings to one object for use in maps object
+ * @param  {object} location    [object containing latitude, longitude and zoom value]
  * @param  {object} mapSettings [google maps api configuration object]
  * @param  {object} mapStyles   [google maps styling configuration object]
- * @return {object}             [concatinated object with all options]
+ * @return {object}             [concatenated object with all options]
  */
 export function assignMapsSettings (location, mapSettings, mapStyles) {
   Object.assign(mapSettings, {
@@ -22,11 +22,11 @@ export function assignMapsSettings (location, mapSettings, mapStyles) {
 }
 
 /**
- * Concatinates default settings and cms data to one object for use in marker object
+ * Concatenates default settings and user-defined settings to one object for use in marker object
  * @param  {object} location        [object containing lat and lang value]
  * @param  {object} markerSettings  [google maps api marker configuration object]
  * @param  {object} map             [google maps object]
- * @return {object}                 [concatinated object with all options]
+ * @return {object}                 [concatenated object with all options]
  */
 export function assignMarkerSettings (location, markerSettings, map) {
   Object.assign(markerSettings, {
