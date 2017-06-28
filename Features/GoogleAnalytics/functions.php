@@ -2,8 +2,6 @@
 
 namespace Flynt\Features\GoogleAnalytics;
 
-define(__NAMESPACE__ . '\NS', __NAMESPACE__ . '\\');
-
 require_once __DIR__ . '/GoogleAnalytics.php';
 
 use Flynt\Features\GoogleAnalytics\GoogleAnalytics;
@@ -21,6 +19,11 @@ function init()
     if ($googleAnalyticsOptions) {
         new GoogleAnalytics($googleAnalyticsOptions);
     }
+}
+
+add_action('wp_enqueue_scripts', function () {
+    $gaOptions = OptionPages::get('globalOptions', 'feature', 'GoogleAnalytics');
+    $gaOptionsTranslatable = OptionPages::get('translatableOptions', 'feature', 'GoogleAnalytics');
 
     Asset::enqueue([
         'type' => 'script',
@@ -36,9 +39,9 @@ function init()
     ]);
 
     $data = [
-        'gaId' => $googleAnalyticsOptions['gaId'],
-        'confirm' => (isset($googleAnalyticsOptionsTranslatable['optOutConfirm'])) ? $googleAnalyticsOptionsTranslatable['optOutConfirm'] : '',
-        'success' => (isset($googleAnalyticsOptionsTranslatable['optOutSuccess'])) ? $googleAnalyticsOptionsTranslatable['optOutSuccess'] : ''
+        'gaId' => $gaOptions['gaId'],
+        'confirm' => $gaOptionsTranslatable['optOutConfirm'],
+        'success' => $gaOptionsTranslatable['optOutSuccess']
     ];
-    wp_localize_script('Flynt/Features/GoogleAnalytics', 'wpData', $data);
-}
+    wp_localize_script('Flynt/Features/GoogleAnalytics', 'dataFlyntFeatureGoogleAnalytics', $data);
+}, 100);

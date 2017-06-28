@@ -1,10 +1,10 @@
-/* global wpData, Cookies */
+/* global dataFlyntFeatureGoogleAnalytics, Cookies */
 
 import $ from 'jquery'
 import 'file-loader?name=vendor/js-cookie.js!js-cookie/src/js.cookie'
 
 const $gaOptoutLinks = $('.globalAction-optoutGa')
-const data = wpData
+const data = dataFlyntFeatureGoogleAnalytics
 
 const alreadyOptedOut = getOptoutCookie()
 
@@ -14,12 +14,19 @@ if (alreadyOptedOut) {
 } else {
   $gaOptoutLinks.on('click', function (e) {
     e.preventDefault()
+    let confirmOptout = false
 
-    const confirmOptout = window.confirm(data.confirm)
+    if (data.confirm) {
+      confirmOptout = window.confirm(data.confirm)
+    } else {
+      confirmOptout = true
+    }
 
     if (confirmOptout) {
       window['ga-disable-' + data.gaId] = true
-      window.alert(data.success)
+      if (data.success) {
+        window.alert(data.success)
+      }
       setOptoutCookie()
     }
   })
