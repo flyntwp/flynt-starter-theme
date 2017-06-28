@@ -56,7 +56,7 @@ class MapGoogle extends window.HTMLDivElement {
   }
 
   initInfoWindow () {
-    this.infoWindow = MapsHelper.addInfoWindow(this.infoContent, this.marker, this.map)
+    this.infoWindow = MapsHelper.addInfoWindowToMarker(this.infoContent, this.marker, this.map)
   }
 }
 

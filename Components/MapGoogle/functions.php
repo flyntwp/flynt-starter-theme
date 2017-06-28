@@ -6,7 +6,7 @@ use Flynt\Features\Components\Component;
 use Flynt\Features\Acf\OptionPages;
 
 add_action('wp_enqueue_scripts', function () {
-    $apiKey = OptionPages::get('globalOptions', 'feature', 'Acf', 'googleMapsApiKey');
+    $apiKey = OptionPages::get('globalOptions', 'feature', 'acf', 'googleMapsApiKey');
     $enqueuedAssets = [
         [
             'type' => 'script',

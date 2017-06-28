@@ -20,7 +20,7 @@ map,google,googlemaps,api,marker,infowindow
 
 ### Description:
 
-A simple Google Map using custom styles, markers and info windows.
+A simple Google Map using custom styles, markers and info windows. For styling you can use the [Google Maps Styler](https://mapstyle.withgoogle.com/).
 
 ---
 
