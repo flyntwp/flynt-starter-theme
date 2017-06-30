@@ -77,7 +77,6 @@ class AccordionVertical extends window.HTMLDivElement {
 
     // Reset state of all items if not multiselectable
     if (!this.isMultiselectable) {
-      console.log('hide all')
       this.hideItems()
     }
 
