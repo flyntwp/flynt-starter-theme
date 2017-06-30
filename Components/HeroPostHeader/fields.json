@@ -1,0 +1,27 @@
+{
+  "translatableOptions": [
+    {
+      "label": "Translatable Option",
+      "name": "translatableOption",
+      "type": "text"
+    }
+  ],
+  "globalOptions": [
+    {
+      "label": "Global Option",
+      "name": "globalOption",
+      "type": "text"
+    }
+  ],
+  "layout": {
+    "name": "heroPostHeader",
+    "label": "Hero Post Header",
+    "sub_fields": [
+      {
+        "label": "Text",
+        "name": "text",
+        "type": "text"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{% if providers %}
+  <div class="share">
+    <div class="share-label">Share on:</div>
+    {% for provider in providers %}
+      <a href="{{ provider.finalUrl }}" class="share-link {{ provider.class }}" target="_blank">{{ provider.title }}</a>
+    {% endfor %}
+  </div>
+{% endif %}

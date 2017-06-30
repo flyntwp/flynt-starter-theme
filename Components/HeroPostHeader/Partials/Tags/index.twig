@@ -1,0 +1,6 @@
+<div class="tags">
+  <span class="tags-label">Tags: </span>
+  {% for tag in post.tags %}
+    <a href="{{ tag.link }}" class="tags-tag">{{ tag.name }}</a>
+  {% endfor %}
+</div>

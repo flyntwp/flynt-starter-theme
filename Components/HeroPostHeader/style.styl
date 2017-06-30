@@ -1,0 +1,28 @@
+$rupture.scale = lookup('$globalLayoutScale') || (0 575px 767px 991px 1199px)
+$rupture.anti-overlap = lookup('$globalLayoutOverlap') || -1px
+$gutterWidth = lookup('$globalLayoutGutterWidth') || 1.5
+$containerPadding = lookup('$globalLayoutContainerPadding') || 15px
+$containerMaxWidth = lookup('$globalLayoutContainerMaxWidth') || 1140px
+
+.flyntComponent[is="flynt-hero-post-header"]
+  *,
+  *:before,
+  *:after
+    box-sizing: border-box
+
+  .postHeader
+    center($containerMaxWidth, $containerPadding)
+
+    &-metaRow
+      clearfix()
+
+    &-metaField
+      float: left
+      max-width: 20%
+
+      +below('m')
+        max-width: 33.333%
+
+      +below('s')
+        float: none
+        max-width: none
