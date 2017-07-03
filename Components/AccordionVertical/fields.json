@@ -10,6 +10,7 @@
         "required": 1,
         "min": 1,
         "layout": "row",
+        "button_label": "Add Item",
         "sub_fields": [
           {
             "name": "titleText",
