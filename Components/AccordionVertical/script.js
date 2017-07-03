@@ -15,19 +15,18 @@ class AccordionVertical extends window.HTMLDivElement {
       controls: 'aria-controls',
       expanded: 'aria-expanded'
     }
-
     this.class = {
       expanded: 'accordionVertical-item-isExpanded',
       hidden: 'accordionVertical-item-isHidden',
       contentIsSizing: 'accordionVertical-content-isSizing'
     }
+    this.isMultiselectable = this.$.attr('aria-multiselectable')
   }
 
   resolveElements () {
     this.$item = $('.accordionVertical-item', this)
     this.$button = $('.accordionVertical-btn[aria-controls]', this)
     this.$content = $('.accordionVertical-content', this)
-    this.isMultiselectable = this.$.attr('aria-multiselectable')
   }
 
   connectedCallback () {
