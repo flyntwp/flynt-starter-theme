@@ -35,6 +35,4 @@ You can allow multiple sections to remain open at the same time by adding the `a
 
 ## Accessibility
 
-- Code header areas in the accordion as <buttons> so that they are usable with both screen readers and the keyboard.
-
 - Each button has a unique name aria-controls="id" that associates the control to the appropriate region by referencing the controlled element’s id.

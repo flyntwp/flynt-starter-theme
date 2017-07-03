@@ -4,7 +4,8 @@ $containerPadding = lookup('$globalContainerPadding') || 15px
 $containerMaxWidth = lookup('$globalContainerMaxWidth') || 1140px
 $colorBrand = lookup('$globalColorBrand') || #254fc7
 $itemPadding = 15px
-$iconWidth = 15px
+$iconHeight = 11px
+$iconWidth = 13px
 
 .flyntComponent[is='flynt-accordion-vertical']
   *,
@@ -46,11 +47,10 @@ $iconWidth = 15px
     &-icon
       display: block
       float: right
-      height: 12px
+      height: $iconHeight
       position: absolute
       right: $itemPadding
       top: $itemPadding + 3px
-      transition: transform .3s ease
       width: $iconWidth
 
     &-item-isExpanded
@@ -60,9 +60,6 @@ $iconWidth = 15px
 
         &-btn
           color: $colorBrand
-
-        &-icon
-          transform: rotate(180deg)
 
     &-item-isHidden
       .accordionVertical
