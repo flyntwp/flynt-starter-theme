@@ -5,8 +5,8 @@ $containerMaxWidth = lookup('$globalContainerMaxWidth') || 1140px
 $colorBrand = lookup('$globalColorBrand') || #254fc7
 $buttonBackgroundColor = #f3f3f3
 $itemPadding = 15px
-$iconHeight = 11px
-$iconWidth = 13px
+$toggleIconHeight = 11px
+$toggleIconWidth = 13px
 
 .flyntComponent[is='flynt-accordion-vertical']
   *,
@@ -39,7 +39,7 @@ $iconWidth = 13px
       display: block
       font-size: 16px
       outline: 0
-      padding: $itemPadding ($itemPadding + $iconWidth) $itemPadding $itemPadding
+      padding: $itemPadding ($itemPadding + $toggleIconWidth) $itemPadding $itemPadding
       position: relative
       text-align: left
       transition: color .3s ease
@@ -51,11 +51,11 @@ $iconWidth = 13px
     &-icon
       display: block
       float: right
-      height: $iconHeight
+      height: $toggleIconHeight
       position: absolute
       right: $itemPadding
       top: $itemPadding + 3px
-      width: $iconWidth
+      width: $toggleIconWidth
 
     &-item
       &:not(:last-child)

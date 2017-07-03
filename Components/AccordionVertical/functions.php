@@ -10,6 +10,6 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 add_filter('Flynt/addComponentData?name=AccordionVertical', function ($data) {
-    $data['arrowIconSrc'] = Asset::requireUrl('Components/AccordionVertical/assets/arrow.svg');
+    $data['toggleIconSrc'] = Asset::requireUrl('Components/AccordionVertical/assets/toggleIcon.svg');
     return $data;
 });
