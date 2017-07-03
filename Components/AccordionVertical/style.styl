@@ -2,6 +2,9 @@ $rupture.scale = lookup('$globalRuptureScale') || (0 575px 767px 991px 1199px)
 $rupture.anti-overlap = lookup('$globalRuptureAntiOverlap') || -1px
 $containerPadding = lookup('$globalContainerPadding') || 15px
 $containerMaxWidth = lookup('$globalContainerMaxWidth') || 1140px
+$colorBrand = lookup('$globalColorBrand') || #254fc7
+$itemPadding = 15px
+$iconWidth = 15px
 
 .flyntComponent[is='flynt-accordion-vertical']
   *,
@@ -19,12 +22,49 @@ $containerMaxWidth = lookup('$globalContainerMaxWidth') || 1140px
 
     &-content
       display: none
+      padding: 0 $itemPadding
 
-    &-item
-      &-isExpanded
-        .accordionVertical-content
+    &-btn
+      -webkit-appearance: none
+      background: transparent
+      border: 0
+      border-bottom: 1px solid #eaeaea
+      border-radius: 0
+      cursor: pointer
+      display: block
+      font-size: 16px
+      outline: 0
+      padding: $itemPadding ($itemPadding + $iconWidth) $itemPadding $itemPadding
+      position: relative
+      text-align: left
+      transition: color .3s ease
+      width: 100%
+
+      &:hover
+        color: $colorBrand
+
+    &-icon
+      display: block
+      float: right
+      height: 12px
+      position: absolute
+      right: $itemPadding
+      top: $itemPadding + 3px
+      transition: transform .3s ease
+      width: $iconWidth
+
+    &-item-isExpanded
+      .accordionVertical
+        &-content
           display: block
 
-      &-isHidden
-        .accordionVertical-content
+        &-btn
+          color: $colorBrand
+
+        &-icon
+          transform: rotate(180deg)
+
+    &-item-isHidden
+      .accordionVertical
+        &-content
           display: none

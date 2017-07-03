@@ -5,6 +5,7 @@
         <li class="accordionVertical-item {% if loop.first %}accordionVertical-item-isExpanded {% endif %}">
           <button class="accordionVertical-btn" aria-controls="item-{{key}}" {% if loop.first %}aria-expanded="true"{% endif %}>
             {{ item.titleText }}
+            <img class="accordionVertical-icon" src="{{ arrowIconSrc }}" alt="">
           </button>
           <div id="item-{{key}}" class="accordionVertical-content" {% if loop.first %}aria-hidden="false"{% endif %}>
             {{ item.contentHtml }}

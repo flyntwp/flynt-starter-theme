@@ -2,6 +2,24 @@
 
 This component is based heavily on the accordion component provided by the [U.S. web design standards](https://standards.usa.gov/components/accordions/).
 
+## Helpers
+
+### Show or hide single items
+
+Create small helper functions to show and hide single items:
+
+```js
+showItem ($button) {
+  this.toggleItem($button, false)
+}
+```
+
+```js
+hideItem ($button) {
+  this.toggleItem($button, true)
+}
+```
+
 ## Variants
 
 ### Multiselectable

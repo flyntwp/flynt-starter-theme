@@ -33,14 +33,9 @@ class AccordionVertical extends window.HTMLDivElement {
     this.$.on('click', this.$button.selector, this.toggleButton)
   }
 
-  showItem ($button) {
-    this.toggleItem($button, true)
-  }
-
-  hideItem ($button) {
-    this.toggleItem($button, false)
-  }
-
+  /**
+   * Toggle item state for clicked button.
+   */
   toggleButton = (e, expanded) => {
     e.preventDefault()
     const $button = $(e.currentTarget)
@@ -54,7 +49,7 @@ class AccordionVertical extends window.HTMLDivElement {
    * @param {HTMLButtonElement} button
    * @param {boolean?} expanded If no state is provided, the current
    * state will be toggled (from false to true, and vice-versa).
-   * @return {boolean} the resulting state
+   * @return {boolean} the resulting state.
    */
   toggleItem ($button, expanded) {
     const id = $button.attr(this.aria.controls)
@@ -77,10 +72,10 @@ class AccordionVertical extends window.HTMLDivElement {
 
     // Reset state of all items if not multiselectable
     if (!this.isMultiselectable) {
-      this.hideItems()
+      this.hideAllItems()
     }
 
-    // Apply new state to target
+    // Apply new state to target item
     $button.attr(this.aria.expanded, expanded)
     $controls.attr(this.aria.hidden, !expanded)
 
@@ -95,7 +90,10 @@ class AccordionVertical extends window.HTMLDivElement {
     return expanded
   }
 
-  hideItems () {
+  /**
+   * Hide all accordion items.
+   */
+  hideAllItems () {
     this.$button.attr(this.aria.expanded, false)
     this.$controls.attr(this.aria.hidden, true)
     this.$item
