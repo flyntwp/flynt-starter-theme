@@ -45,7 +45,7 @@ function getShareProviders($postTitle, $postUrl, $postExcerpt)
         ]
     ];
 
-    $providers = array_map(function($provider) use ($postTitle, $postUrl, $postExcerpt) {
+    $providers = array_map(function ($provider) use ($postTitle, $postUrl, $postExcerpt) {
         $shareUrl = str_replace('$url', $postUrl, $provider['url']);
         $shareUrl = str_replace('$title', $postTitle, $shareUrl);
         $shareUrl = str_replace('$summary', $postExcerpt, $shareUrl);
