@@ -2,14 +2,6 @@ $colorBrand = lookup('$globalColorBrand') || #254fc7
 $colorText = lookup('$globalColorText') || #153cab
 
 [is='flynt-document-default']
-  .btn-primary
-    background-color: $colorBrand
-    color: $colorText
-
-    &:hover
-      background-color: $colorBrand
-      text-decoration: none
-
   .btn
     border-radius: 5px
     border: 1px solid
@@ -26,3 +18,11 @@ $colorText = lookup('$globalColorText') || #153cab
     &:active
       box-shadow: none
       outline: 0
+
+    &-isPrimary
+      background-color: $colorBrand
+      color: $colorText
+
+      &:hover
+        background-color: $colorBrand
+        text-decoration: none
