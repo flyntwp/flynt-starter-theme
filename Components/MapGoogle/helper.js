@@ -40,6 +40,13 @@ export function assignMarkerSettings (location, markerSettings, map) {
   return markerSettings
 }
 
+/**
+ * Adds a icon object to the passed markerSettings
+ * @param {object} markerSettings   Contains the already set settings for this type of marker
+ * @param {string} iconUrl          Contains the absolute URL to the marker icon
+ * @param {Number} [scaledSizeX=16] Scaled width for the new icon
+ * @param {Number} [scaledSizeY=16] Scaled height for the new icon
+ */
 export function setMarkerIcon (markerSettings, iconUrl, scaledSizeX = 16, scaledSizeY = 16) {
   Object.assign(markerSettings, {
     'icon': {
