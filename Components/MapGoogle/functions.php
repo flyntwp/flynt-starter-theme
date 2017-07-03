@@ -20,8 +20,6 @@ add_action('wp_enqueue_scripts', function () {
 add_filter('Flynt/addComponentData?name=MapGoogle', function ($data) {
     if (!empty($data['infoContent'])) {
         $data['infoContent'] = htmlspecialchars(json_encode($data['infoContent']));
-    } else {
-        $data['infoContent'] = false;
     }
 
     $data['markerIcon'] = Asset::requireUrl('Components/MapGoogle/assets/marker.svg');
