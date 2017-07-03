@@ -21,6 +21,7 @@ add_action('wp_enqueue_scripts', function () {
 
 add_filter('Flynt/addComponentData?name=MapGoogle', function ($data) {
     $data['infoContent'] = htmlspecialchars(json_encode($data['infoContent']));
+    $data['markerIcon'] = Asset::requireUrl('Components/MapGoogle/assets/marker.svg');
     $data['apiKey'] = OptionPages::get('globalOptions', 'feature', 'acf', 'googleMapsApiKey');
     return $data;
 });

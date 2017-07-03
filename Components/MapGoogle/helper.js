@@ -40,6 +40,19 @@ export function assignMarkerSettings (location, markerSettings, map) {
   return markerSettings
 }
 
+export function setMarkerIcon (markerSettings, iconUrl, scaledSizeX = 16, scaledSizeY = 16) {
+  Object.assign(markerSettings, {
+    'icon': {
+      'url': iconUrl,
+      'scaledSize': new google.maps.Size(scaledSizeX, scaledSizeY),
+      'origin': new google.maps.Point(0, 0),
+      'anchor': new google.maps.Point(scaledSizeX / 2, scaledSizeY / 2)
+    }
+  })
+
+  return markerSettings
+}
+
 /**
  * Adds a Google Maps Info Window to a marker
  * @param {string} content  [HTML content for the marker]

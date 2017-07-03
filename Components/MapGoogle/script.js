@@ -28,6 +28,7 @@ class MapGoogle extends window.HTMLDivElement {
   connectedCallback () {
     const apiKey = this.$.data('key')
     this.location = MapsHelper.getLocationFromContainer(this.$wrapper)
+    this.markerIcon = this.$wrapper.data('marker')
     this.infoContent = JSON.parse(this.$wrapper.data('content'))
     window.FlyntExternalScriptLoader.getInstance().initialize('googleMaps', {
       apiKey
@@ -62,6 +63,8 @@ class MapGoogle extends window.HTMLDivElement {
 
   initGoogleMarker () {
     this.markerSettings = MapsHelper.assignMarkerSettings(this.location, markerSettings, this.map)
+    this.markerSettings = MapsHelper.setMarkerIcon(this.markerSettings, this.markerIcon, 32, 32)
+
     this.marker = new google.maps.Marker(this.markerSettings)
   }
 
