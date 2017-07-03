@@ -3,6 +3,7 @@ $rupture.anti-overlap = lookup('$globalRuptureAntiOverlap') || -1px
 $containerPadding = lookup('$globalContainerPadding') || 15px
 $containerMaxWidth = lookup('$globalContainerMaxWidth') || 1140px
 $colorBrand = lookup('$globalColorBrand') || #254fc7
+$buttonBackgroundColor = #f3f3f3
 $itemPadding = 15px
 $iconHeight = 11px
 $iconWidth = 13px
@@ -22,15 +23,18 @@ $iconWidth = 13px
       padding: 0
 
     &-content
-      display: none
+      height: 0
+      overflow: hidden
       padding: 0 $itemPadding
+      transition: height .3s ease
+
+      &-isSizing
+        transition: none
 
     &-btn
       -webkit-appearance: none
-      background: transparent
+      background-color: $buttonBackgroundColor
       border: 0
-      border-bottom: 1px solid #eaeaea
-      border-radius: 0
       cursor: pointer
       display: block
       font-size: 16px
@@ -53,15 +57,13 @@ $iconWidth = 13px
       top: $itemPadding + 3px
       width: $iconWidth
 
-    &-item-isExpanded
-      .accordionVertical
-        &-content
-          display: block
+    &-item
+      &:not(:last-child)
+        margin-bottom: 5px
 
-        &-btn
+      &-isExpanded
+        .accordionVertical-content
+          height: auto
+
+        .accordionVertical-btn
           color: $colorBrand
-
-    &-item-isHidden
-      .accordionVertical
-        &-content
-          display: none

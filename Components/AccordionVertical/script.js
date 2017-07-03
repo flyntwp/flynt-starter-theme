@@ -18,19 +18,21 @@ class AccordionVertical extends window.HTMLDivElement {
 
     this.class = {
       expanded: 'accordionVertical-item-isExpanded',
-      hidden: 'accordionVertical-item-isHidden'
+      hidden: 'accordionVertical-item-isHidden',
+      contentIsSizing: 'accordionVertical-content-isSizing'
     }
   }
 
   resolveElements () {
     this.$item = $('.accordionVertical-item', this)
     this.$button = $('.accordionVertical-btn[aria-controls]', this)
-    this.$controls = $('.accordionVertical-content', this)
+    this.$content = $('.accordionVertical-content', this)
     this.isMultiselectable = this.$.attr('aria-multiselectable')
   }
 
   connectedCallback () {
     this.$.on('click', this.$button.selector, this.toggleButton)
+    $(window).on('load resize', this.updateExpandedItemHeight)
   }
 
   /**
@@ -54,51 +56,75 @@ class AccordionVertical extends window.HTMLDivElement {
   toggleItem ($button, expanded) {
     const id = $button.attr(this.aria.controls)
     const $item = $button.closest(this.$item.selector)
-    const $controls = $(`#${id}`, this)
+    const $content = $(`#${id}`, this)
 
-    if (!$controls.length) {
+    if (!$content.length) {
       throw new Error(
-        `No toggle target found with id: ${id}`
+        `No content target found with id: ${id}`
       )
     }
 
     // Check if expanded state provided as parameter
     if (typeof expanded !== 'boolean') {
       expanded = $button.attr(this.aria.expanded) === 'true'
+
+      // Reset state of all items if not multiselectable
+      if (!this.isMultiselectable) {
+        this.hideItems(this.$button)
+      }
     }
 
     // Set new expanded state
     expanded = !expanded
 
-    // Reset state of all items if not multiselectable
-    if (!this.isMultiselectable) {
-      this.hideAllItems()
-    }
-
     // Apply new state to target item
     $button.attr(this.aria.expanded, expanded)
-    $controls.attr(this.aria.hidden, !expanded)
+    $content.attr(this.aria.hidden, !expanded)
 
     if (expanded) {
-      $item.addClass(this.class.expanded)
-      $item.removeClass(this.class.hidden)
+      $content.height($content.get(0).scrollHeight)
+      $item
+        .addClass(this.class.expanded)
+        .removeClass(this.class.hidden)
     } else {
-      $item.removeClass(this.class.expanded)
-      $item.addClass(this.class.hidden)
+      $content.height('')
+      $item
+        .removeClass(this.class.expanded)
+        .addClass(this.class.hidden)
     }
 
     return expanded
   }
 
   /**
-   * Hide all accordion items.
+   * Hide accordion items.
+   *
+   * @param {HTMLButtonElement} $buttons The buttons to hide.
    */
-  hideAllItems () {
-    this.$button.attr(this.aria.expanded, false)
-    this.$controls.attr(this.aria.hidden, true)
-    this.$item
-      .removeClass(this.class.expanded)
-      .addClass(this.class.hidden)
+  hideItems ($buttons) {
+    $.each($buttons, (i, button) => {
+      this.toggleItem($(button), true)
+    })
+  }
+
+  /**
+   * Update the height of all expanded items
+   * without triggering an animation.
+   */
+  updateExpandedItemHeight = () => {
+    const expandedItems = this.$.find(`.${this.class.expanded}`)
+    $.each(expandedItems, (i, item) => {
+      const $content = $(item).find(this.$content.selector)
+      $content
+        .addClass(this.class.contentIsSizing)
+        .height(0)
+        .height($content.get(0).scrollHeight)
+
+      clearTimeout(this.sizingTimeout)
+      this.sizingTimeout = setTimeout(() => {
+        this.$content.removeClass(this.class.contentIsSizing)
+      }, 150)
+    })
   }
 }
 
