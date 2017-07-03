@@ -7,17 +7,12 @@ import * as MapsHelper from './helper'
 /* You can use https://mapstyle.withgoogle.com/ to style your map for your needs */
 import mapStyles from './json/mapstyles.json'
 
-/* Check the MapOptions object specification at https://developers.google.com/maps/documentation/javascript/reference */
-import mapSettings from './json/mapsettings.json'
-
-/* Check the Marker docs at https://developers.google.com/maps/documentation/javascript/markers */
-import markerSettings from './json/markersettings.json'
-
 class MapGoogle extends window.HTMLDivElement {
   constructor (self) {
     self = super(self)
     self.$ = $(self)
     self.resolveElements()
+    this.setOptions()
     return self
   }
 
@@ -30,6 +25,7 @@ class MapGoogle extends window.HTMLDivElement {
     this.location = MapsHelper.getLocationFromContainer(this.$wrapper)
     this.markerIcon = this.$wrapper.data('marker')
     this.infoContent = JSON.parse(this.$wrapper.data('content'))
+
     window.FlyntExternalScriptLoader.getInstance().initialize('googleMaps', {
       apiKey
     })
@@ -57,12 +53,12 @@ class MapGoogle extends window.HTMLDivElement {
   }
 
   initGoogleMap () {
-    this.gmapSettings = MapsHelper.assignMapsSettings(this.location, mapSettings, mapStyles)
+    this.gmapSettings = MapsHelper.assignMapsSettings(this.location, this.mapSettings, mapStyles)
     this.map = new google.maps.Map(this.$wrapper.get(0), this.gmapSettings)
   }
 
   initGoogleMarker () {
-    this.markerSettings = MapsHelper.assignMarkerSettings(this.location, markerSettings, this.map)
+    this.markerSettings = MapsHelper.assignMarkerSettings(this.location, this.markerSettings, this.map)
     this.markerSettings = MapsHelper.setMarkerIcon(this.markerSettings, this.markerIcon, 32, 32)
 
     this.marker = new google.maps.Marker(this.markerSettings)
@@ -71,6 +67,29 @@ class MapGoogle extends window.HTMLDivElement {
   initInfoWindow () {
     if (this.infoContent) {
       this.infoWindow = MapsHelper.addInfoWindowToMarker(this.infoContent, this.marker, this.map)
+    }
+  }
+
+  setOptions () {
+    this.mapSettings = {
+      'clickableIcons': false,
+      'disableDefaultUI': true,
+      'disableDoubleClickZoom': true,
+      'draggable': true,
+      'fullscreenControl': false,
+      'heading': 0,
+      'keyboardShortcuts': false,
+      'panControl': false,
+      'rotateControl': false,
+      'scaleControl': false,
+      'scrollwheel': false,
+      'streetViewControl': false,
+      'tilt': 0,
+      'zoomControl': false
+    }
+
+    this.markerSettings = {
+      'draggable': false
     }
   }
 }
