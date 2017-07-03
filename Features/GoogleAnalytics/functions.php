@@ -9,7 +9,7 @@ use Flynt\Utils\Feature;
 use Flynt\Utils\Asset;
 use Flynt\Features\Acf\OptionPages;
 
-add_action('init', 'Flynt\Features\GoogleAnalytics\init', 100);
+add_action('init', 'Flynt\Features\GoogleAnalytics\init');
 
 function init()
 {
