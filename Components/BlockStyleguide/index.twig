@@ -15,6 +15,7 @@
         <div class="styleguide-font" style="font-family: {{ font.font }}">
           <p class="styleguide-fontName">{{ font.name }}</p>
           <p class="styleguide-fontDemo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint neque sed corrupti molestias suscipit ipsa laboriosam esse ut dolorem culpa, harum dolorum dignissimos iusto repudiandae numquam! Qui ipsa, a ipsum.</p>
+          <p class="styleguide-fontDemoCapitalized">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint neque sed corrupti molestias suscipit ipsa laboriosam esse ut dolorem culpa, harum dolorum dignissimos iusto repudiandae numquam! Qui ipsa, a ipsum.</p>
         </div>
       {% endfor %}
     </section>
@@ -31,30 +32,36 @@
 
     <section class="styleguide-section">
       <h2 class="styleguide-sectionTitle">Paragraphs with Headlines</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis itaque quam ipsam, voluptates alias ad expedita in delectus repellendus, quisquam, cum hic ea eos velit, totam incidunt possimus accusantium magni?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur <a href="#">adipisicing elit</a>. Corporis itaque quam ipsam, voluptates alias ad expedita in delectus repellendus, quisquam, cum hic ea eos velit, totam incidunt possimus accusantium magni?</p>
       <p>Lorem ipsum dolor sit amet, <strong>strong consectetur adipisicing</strong> elit. Omnis, <bold>bold perspiciatis ex</bold> <em>em quibusdam doloribus</em> <i>i sit dolores ab</i> aliquid placeat, <small>id facere fugit</small>, eaque, modi voluptate nesciunt optio in nemo ipsa illo!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur <u>u adipisicing elit</u>. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
+      <p>Lorem ipsum dolor sit amet, consectetur <u>u adipisicing elit</u>. Ab delectus <a href="#" target="_blank">quia eaque</a>, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
       <h1>The quick brown fox jumps over the lazy dog</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus et consectetur assumenda placeat unde beatae! Fugiat distinctio dolore neque in laboriosam impedit consectetur, mollitia incidunt, illo similique cumque fugit quo!</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
       <h2>The quick brown fox jumps over the lazy dog</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium tempore quidem esse modi, sequi reiciendis delectus, voluptatibus quam ea ipsa in dolorum nobis impedit eum suscipit magnam. Asperiores, dolor, iusto.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
       <h3>The quick brown fox jumps over the lazy dog</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum iure illo, placeat similique perferendis repellat sequi aut illum cupiditate pariatur! Nesciunt quis voluptatibus culpa nisi, omnis. Cupiditate dignissimos optio quis?</p>
+      <ol>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+      </ol>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
       <h4>The quick brown fox jumps over the lazy dog</h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, deleniti repudiandae beatae dolores velit voluptatibus ipsam pariatur consequuntur cupiditate. Deleniti est voluptate aspernatur, laudantium quae in ad necessitatibus et, veniam!</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
       <h5>The quick brown fox jumps over the lazy dog</h5>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae cum exercitationem saepe. Excepturi et tempore facere, omnis neque incidunt. Porro ea, sit nulla aperiam commodi deleniti. Tempore numquam laudantium minus!</p>
+      <ul>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+        <li>Lorem Ipsum</li>
+      </ul>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
-      <hr class="styleguide-trim" />
       <h6>The quick brown fox jumps over the lazy dog</h6>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus quia eaque, atque culpa facilis fugit fuga quisquam doloribus sit eos libero reprehenderit at, sint, debitis in dolores, repudiandae voluptates.</p>
@@ -152,10 +159,9 @@
 
     <section class="styleguide-section">
       <h2 class="styleguide-sectionTitle">Buttons</h2>
-      <a href="#" class="btn btn-isPrimary">Button Primary</a>
-      <a href="#" class="btn btn-isSecondary">Button Secondary</a>
-      <a href="#" class="btn btn-isTertiary">Button Tertiary</a>
-      <a href="#" class="btn btn-isQuartiary">Button Quartiary</a>
+      <a href="#" class="btn">Button Default</a>
+      <a href="#" class="btn btn--primary">Button Primary</a>
+      <a href="#" class="btn btn--secondary">Button Primary</a>
     </section>
 
     <section class="styleguide-section">
