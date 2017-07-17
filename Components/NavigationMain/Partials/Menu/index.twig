@@ -1,7 +1,7 @@
 <ul class="menu menu--level{{ level }}" itemscope itemtype="http://schema.org/SiteNavigationElement">
   {% for item in items %}
     <li class="menu-item menu-item--level{{ level }} {{ item.classes | join(' ') }}">
-      <a itemprop="url" class="menu-link menu-link--level{{ level }}" href="{{ item.link }}" target="{{ item.target}}">
+      <a itemprop="url" class="menu-link menu-link--level{{ level }}" href="{{ item.link }}" target="{{ item.target}}" title="{{ item.post_excerpt }}">
         <span itemprop="name" class="menu-text menu-text--level{{ level }}">{{ item.title }}</span>
       </a>
       {% if item.get_children and level + 1 <= maxLevel %}
