@@ -9,10 +9,11 @@ Shortcodes and helper classes to generate demo content to help with developing u
 
 ## Example Shortcode
 
-[lorem-ipsum length="long" decorate="1" headers="1"]
+[lorem-ipsum  length="long" decorate="1" headers="1"]
 
 ## Shortcode attributes
 
+* paragraphs: (int)
 * length: (short|medium|long|verylong)
 * decorate
 * link
@@ -34,6 +35,7 @@ You can also call the function via the helper class.
 use Flynt\Features\LoremIpsum\Helper;
 
 $content = Helper::getLoremIpsum([
+  'plength' => 2,
   'length' => 'short',
   'decorate' => false,
   'link' => false,
