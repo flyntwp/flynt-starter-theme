@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/flyntwp/flynt-starter-theme/compare/v0.4.0...v0.4.1) (2018-11-26)
+
+
+### Bug Fixes
+
+* **Components:** load layout component assets only when necessary ([#289](https://github.com/flyntwp/flynt-starter-theme/issues/289)) ([246a8f9](https://github.com/flyntwp/flynt-starter-theme/commit/246a8f9))
+* **Features/Acf:** fix expand/close all buttons ([#287](https://github.com/flyntwp/flynt-starter-theme/issues/287)) ([8e43483](https://github.com/flyntwp/flynt-starter-theme/commit/8e43483)), closes [#286](https://github.com/flyntwp/flynt-starter-theme/issues/286)
+
+
+### Features
+
+* **Features/ComponentLogServer:** add a simple logging functionality ([#291](https://github.com/flyntwp/flynt-starter-theme/issues/291)) ([cccc3c5](https://github.com/flyntwp/flynt-starter-theme/commit/cccc3c5))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/flyntwp/flynt-starter-theme/compare/v0.3.1...v0.4.0) (2018-07-19)
 
