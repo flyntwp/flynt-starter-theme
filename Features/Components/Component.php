@@ -21,7 +21,8 @@ class Component
                 array_push($list, $dependency['name']);
             }
             return $list;
-        }, ['jquery']); // jquery as a default dependency
+        }, ['jquery-flynt']); // jquery-flynt as a default dependency
+        // NOTE: needs to have Flynt's Jquery feature enabled
 
         // Enqueue Component Scripts if they exist
         $scriptAbsPath = Asset::requirePath("Components/{$componentName}/script.js");
