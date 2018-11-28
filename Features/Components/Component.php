@@ -22,7 +22,7 @@ class Component
             }
             return $list;
         }, ['jquery-flynt']); // jquery-flynt as a default dependency
-        // NOTE: needs to have Flynt's Jquery feature enabled
+        // NOTE: needs to have jquery-flynt registered in DocumentDefault or any other Document* component
 
         // Enqueue Component Scripts if they exist
         $scriptAbsPath = Asset::requirePath("Components/{$componentName}/script.js");

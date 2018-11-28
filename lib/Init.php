@@ -52,9 +52,6 @@ function initTheme()
     // use timber rendering
     add_theme_support('flynt-timber-loader');
 
-    // load jQuery in footer by default
-    add_theme_support('flynt-jquery');
-
     // clean up some things
     add_theme_support('flynt-clean-head');
     add_theme_support('flynt-clean-rss');
