@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block components %}
-  {{ renderFlexibleContent(post.meta('pageComponents')) }}
-  {{ renderFlexibleContent(post.meta('postComponents')) }}
+  {{ post.content }}
 {% endblock %}
 
 {% block footer %}

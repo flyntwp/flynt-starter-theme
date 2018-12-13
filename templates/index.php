@@ -1,12 +1,7 @@
 <?php
 
 use Timber\Timber;
-use Timber\PostQuery;
-
-$context = Timber::get_context();
-$context['posts'] = new PostQuery();
-$context['feedTitle'] = $context['site']->name . ' ' . __('Feed', 'flynt-starter-theme');
-$context['dir'] = is_rtl() ? 'rtl' : 'ltr';
+$context = getTimberDefaultContext();
 
 Timber::render('twig/index.twig', $context);
 
