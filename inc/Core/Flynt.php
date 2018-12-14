@@ -68,8 +68,14 @@ function registerFields($scope, $fields, $type = null)
     }
     foreach ($fields as $key => $fieldData) {
         $key = ucfirst($key);
-        add_filter("Flynt/{$type}/{$scope}/Fields/{$key}", function () use ($fieldData) {
+        $keyFilter = "Flynt/{$type}/{$scope}/Fields/{$key}";
+        add_filter($keyFilter, function () use ($fieldData) {
             return $fieldData;
         });
+        if (!empty($fieldData['sub_fields'])) {
+            add_filter($keyFilter . '/SubFields', function () use ($fieldData) {
+                return $fieldData['sub_fields'];
+            });
+        }
     }
 }

@@ -73,6 +73,7 @@ function loadFeatures()
     Feature::register('ExternalScriptLoader', $basePath);
     Feature::register('Lodash', $basePath);
     Feature::register('ComponentLogServer', $basePath);
+    Feature::register('AcfGutenberg', $basePath);
 
     do_action('Flynt/afterRegisterFeatures');
 }

@@ -3,6 +3,10 @@
 namespace Flynt\Features\RemoveEditor;
 
 add_action('init', function () {
-    remove_post_type_support('page', 'editor');
-    remove_post_type_support('post', 'editor');
+    if (!apply_filters('use_block_editor_for_post_type', true, 'post')) {
+        remove_post_type_support('post', 'editor');
+    }
+    if (!apply_filters('use_block_editor_for_post_type', true, 'page')) {
+        remove_post_type_support('page', 'editor');
+    }
 });

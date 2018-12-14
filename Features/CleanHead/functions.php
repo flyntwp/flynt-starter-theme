@@ -63,7 +63,9 @@ add_filter('style_loader_tag', function ($input) {
  *
  * Clean up output of <script> tags
  */
-add_filter('script_loader_tag', function ($input) {
-    $input = str_replace("type='text/javascript' ", '', $input);
-    return str_replace("'", '"', $input);
-});
+if (!is_admin()) {
+    add_filter('script_loader_tag', function ($input) {
+        $input = str_replace("type='text/javascript' ", '', $input);
+        return str_replace("'", '"', $input);
+    });
+}

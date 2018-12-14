@@ -1,5 +1,6 @@
 {% extends 'twig/_document.twig' %}
 
 {% block components %}
+  {{ post.content }}
   {{ renderFlexibleContent(post.meta('pageComponents')) }}
 {% endblock %}
