@@ -89,7 +89,7 @@ A component is a self-contained building-block. Each component contains its own 
   ├── functions.php
   ├── index.twig
   ├── README.md
-  ├── screenshot.jpg
+  ├── screenshot.png
   ├── script.js
   ├── style.scss
 ```
