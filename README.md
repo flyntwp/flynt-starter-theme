@@ -6,6 +6,8 @@
 
 The starter theme for building [Flynt](https://flyntwp.com/) projects.
 
+**:warning: DEPRECATED. This repository is no longer in active development. For the latest version of Flynt please use the [new Flynt repository](https://github.com/flyntwp/flynt). :warning:**
+
 ## Table of Contents
 
 - [Background](#background)
