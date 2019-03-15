@@ -42,9 +42,11 @@ All files in `assets`,  `Components` and `Features` will now be watched for chan
 
 ### Assets
 
-The assets folder is for all SCSS, images, and font files that your theme needs. The `main.scss` is watched for changes and compiles to `dist/assets/main.css`.
+The `./assets` folder contains all SCSS, images, and font files for the theme. Files inside this folder are watched for changes and compile to `./dist`.
 
-Also provided is 'admin.scss' which compiles to `dist/assets/admin.css`. This file is enqueued in the administrator back-end of WordPress, so styles added to this file will take effect only in the back-end.
+The `main.scss` file is compiled to `./dist/assets/main.css` which is enqueued in the front-end.
+
+The `admin.scss` file is compiled to `./dist/assets/admin.css` which is enqueued in the administrator back-end of WordPress, so styles added to this file will take effect only in the back-end.
 
 ### Lib & Inc
 
@@ -54,13 +56,13 @@ The `./lib` folder includes helper functions and basic setup logic. *You will mo
 
 The `inc` folder is a more organised version of WordPress' `functions.php` and contains all custom theme logic.
 
-For organisation, `./inc` has three subfolders. It is recommended (but not enforced) to use these three folders to keep the theme well-structured:
+For organisation, `./inc` has three subfolders. We recommend using these three folders to keep the theme well-structured:
 
-- `customPostTypes`<br> Use this folder to register  custom post types.
-- `customTaxonomies`<br> Use this folder to register custom taxonomies.
-- `fieldGroups`<br> Use this folder to register custom field groups. See [Field Groups](#field-groups).
+- `customPostTypes`<br> Use this folder to register custom WordPress post types.
+- `customTaxonomies`<br> Use this folder to register custom WordPress taxonomies.
+- `fieldGroups`<br> Use this folder to register Advanced Custom Fields field groups. (See [Field Groups](#field-groups) for more information.)
 
-After the files from './lib' and './inc' are loaded, all [features](#features) from the `./Features` folder and all [components](#components) from the `./Components` folder are loaded.
+After the files from './lib' and './inc' are loaded, all [components](#components) from the `./Components` folder are loaded.
 
 ### Page Templates
 All template files can be found in the `./templates` directory. Flynt uses [Timber](https://www.upstatement.com/timber/) to structure its page templates and [Twig](https://twig.symfony.com/) for rendering them. [Timber's documentation](https://timber.github.io/docs/) is extensive and up to date, so be sure to get familiar with it.
@@ -91,7 +93,7 @@ To render components into a template, see [Page Templates](#page-templates).
 ### Advanced Custom Fields
 To define Advanced Custom Fields (ACF) for a component, use `Flynt\Api\registerFields`. This has 3 arguments:
 
-```
+```php
 Flynt\Api\registerFields($scope = 'ComponentName', $fields = [], $fieldId = null);
 ```
 
